@@ -1,0 +1,9 @@
+{
+  "app_name": "Sample app",
+  "package": "org.kiwix.kiwixcustomsample",
+  "zim_url": "http://download.kiwix.org/zim/wikipedia_en_ray_charles.zim",
+  "zim_file": "content.zim",
+  "embed_zim": false,
+  "ic_launcher": "icon.png",
+  "enforced_lang": "en"
+}
