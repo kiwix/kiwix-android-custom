@@ -2,7 +2,7 @@
   "app_name": "Wikipedia Medizin (Offline)",
   "package": "org.kiwix.kiwixcustomwikimedde",
   "version_name": "2016-10",
-  "version_code": "2",
+  "zim_url": "https://download.kiwix.org/zim/wikipedia_de_medicine.zim",
   "zim_file": "content.zim",
   "embed_zim": false,
   "ic_launcher": "icon.png",
