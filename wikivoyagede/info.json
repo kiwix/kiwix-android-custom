@@ -1,6 +1,10 @@
 {
-  "ic_launcher": "icon.png",
   "app_name": "Wikivoyage auf Deutsch",
   "package": "org.kiwix.kiwixcustomwikivoyagede",
-  "zim_file": "content.zim"
+  "version_name": "2016-10",
+  "zim_url": "http://download.kiwix.org/zim/wikivoyage/wikivoyage_de_all_novid_2017-08.zim",
+  "zim_file": "content.zim",
+  "embed_zim": false,
+  "ic_launcher": "icon.png",
+  "enforced_lang": "de"
 }
