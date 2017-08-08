@@ -1,0 +1,6 @@
+{
+  "ic_launcher": "icon.png",
+  "app_name": "Wikivoyage auf Deutsch",
+  "package": "org.kiwix.kiwixcustomwikivoyagede",
+  "zim_file": "content.zim"
+}
