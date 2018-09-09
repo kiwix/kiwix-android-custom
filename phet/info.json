@@ -1,9 +1,9 @@
 {
   "app_name": "PhET",
   "package": "org.kiwix.kiwixcustomphet",
-  "version_name": "2017-02",
+  "version_name": "2018-09",
   "version_code": "3",
-  "zim_url": "https://download.kiwix.org/zim/phet_en.zim",
+  "zim_url": "https://download.kiwix.org/zim/phet/phet_mul_2018-09.zim",
   "zim_file": "content.zim",
   "embed_zim": false,
   "ic_launcher": "icon.png",
