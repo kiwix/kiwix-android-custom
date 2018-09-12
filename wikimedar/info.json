@@ -1,8 +1,8 @@
 {
   "app_name": "وِيكيبيديا الطبية (بلا اتصال بالانترنت)",
   "package": "org.kiwix.kiwixcustomwikimedar",
-  "version_name": "2016-07",
-  "zim_url": "https://download.kiwix.org/zim/wikipedia_ar_all.zim",
+  "version_name": "2018-08",
+  "zim_url": "https://download.kiwix.org/zim/wikipedia/wikipedia_ar_medicine_novid_2018-08.zim",
   "zim_file": "content.zim",
   "embed_zim": false,
   "ic_launcher": "icon.png",
