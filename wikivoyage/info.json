@@ -3,8 +3,10 @@
   "app_name": "Wikivoyage",
   "package": "org.kiwix.kiwixcustomwikivoyage",
   "zim_file": "content.zim",
+  "version_name": "2018-10",
+  "zim_url": "https://download.kiwix.org/zim/wikivoyage/wikivoyage_en_all_novid_2018-10.zim",
   "play_store": {
-    "images": {
+   "images": {
       "featureGraphic": [],
       "tvScreenshots": [],
       "tenInchScreenshots": [],
@@ -29,8 +31,6 @@
       "defaultLanguage": "en-US"
     }
   },
-  "version_code": "16",
   "embed_zim": false,
-  "enforced_lang": "en",
-  "version_name": "2016-12"
+  "enforced_lang": "en"
 }
