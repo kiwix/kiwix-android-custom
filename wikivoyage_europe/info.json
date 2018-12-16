@@ -2,6 +2,8 @@
   "ic_launcher": "icon.png",
   "app_name": "Wikivoyage European Travels",
   "package": "org.kiwix.kiwixcustomwikivoyageeurope",
+  "version_name": "2018-10",
+  "zim_url": "https://download.kiwix.org/zim/wikivoyage/wikivoyage_en_europe_novid_2018-10.zim",
   "zim_file": "content.zim",
   "play_store": {
     "images": {
@@ -29,8 +31,6 @@
       "defaultLanguage": "en-US"
     }
   },
-  "version_code": "3",
   "embed_zim": false,
-  "enforced_lang": "en",
-  "version_name": "2016-11"
+  "enforced_lang": "en"
 }
