@@ -1,9 +1,8 @@
 {
   "app_name": "Wikipédia Médica (Offline)",
   "package": "org.kiwix.kiwixcustomwikimedpt",
-  "version_name": "2016-12",
-  "version_code": "7",
-  "zim_url": "http://download.kiwix.org/zim/wikipedia_pt_medicine.zim",
+  "version_name": "2018-10",
+  "zim_url": "https://download.kiwix.org/zim/wikipedia/wikipedia_pt_medicine_2018-10.zim",
   "zim_file": "content.zim",
   "embed_zim": false,
   "ic_launcher": "icon.png",
