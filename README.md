@@ -50,6 +50,8 @@ Download the ZIM file to your computer or on your device e.g. for PhET download 
 ```
 adb push ~/Downloads/kiwix/phet_mul_2019-06.zim /sdcard/
 adb shell
+cd /sdcard/Android/obb/                                                                                                                                        
+mkdir org.kiwix.kiwixcustomphet
 cp /sdcard/phet_mul_2019-06.zim main.4.org.kiwix.kiwixcustomphet.obb
 ```
 
