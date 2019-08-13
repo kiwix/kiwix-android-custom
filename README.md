@@ -37,5 +37,8 @@ Again, assuming both projects are peers, after running the commands above. Conne
 cd ../kiwix-android
 ./gradlew installPhetDebug
 ```
+
+Note: the Android build process is currently finiky and could do with being made easier to use. See https://github.com/kiwix/kiwix-android/issues/1360 
+
 ## Tips
 You can run the script without parameters to see the parameters it expects. If it runs without import errors then your computer probably has the necessary python packages.
