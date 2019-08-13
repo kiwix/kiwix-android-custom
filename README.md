@@ -40,5 +40,18 @@ cd ../kiwix-android
 
 Note: the Android build process is currently finiky and could do with being made easier to use. See https://github.com/kiwix/kiwix-android/issues/1360 
 
+## Using a custom app locally
+The custom app, as built and installed by the gradle script currently _does not include the ZIM file_ and it does not automatically download or install it yet.
+
+The custom app expects the content to be on the device. Here's an overview of the steps involved. You may need to tweak these for your app, environment and device, etc.
+
+Download the ZIM file to your computer or on your device e.g. for PhET download the ZIM file specified in https://github.com/kiwix/kiwix-android-custom/blob/master/phet/info.json by `"zim_url":`. Get this onto the device in the folder `/sdcard` e.g. using the Android `adb push` command-line utility. Copy this file to the location expected by the app. This is often a deeply nested folder, and with a complex filename that's constructed based on parameters used when creating the custom app. Here's an example of the command I used on a locally connected device that is configured as a developer's device (details of how to do this are beyond the scope of these notes).
+
+```
+adb push ~/Downloads/kiwix/phet_mul_2019-06.zim /sdcard/
+adb shell
+cp /sdcard/phet_mul_2019-06.zim main.4.org.kiwix.kiwixcustomphet.obb
+```
+
 ## Tips
 You can run the script without parameters to see the parameters it expects. If it runs without import errors then your computer probably has the necessary python packages.
