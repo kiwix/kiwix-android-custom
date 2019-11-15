@@ -5,7 +5,7 @@
 ''' Generate an Android ic_launcher friendly icon from a PNG logo
 
     Generated icon is a 512x512 piels wide 24b transparent PNG.
-    It contains a white rounded-square background canvas (which can be
+    It contains a transparent background canvas (which can be
         customized by changing its template in templates/)
     It then adds a resized version of the provided logo in the center
     Then adds two markers:
@@ -31,8 +31,8 @@ from subprocess import call
 SIZE = 512  # final icon size
 WHITE_CANVAS_SIZE = 464
 MARKER_SIZE = 85  # square size of the offline and lang markers
-LANG_POSITION = (SIZE/2 - MARKER_SIZE - 10, 386)  # X, Y of language code marker
-OFFLINE_POSITION = (SIZE/2 + 10,
+LANG_POSITION = (SIZE / 2 - MARKER_SIZE - 10, 386)  # X, Y of language code marker
+OFFLINE_POSITION = (SIZE / 2 + 10,
                     LANG_POSITION[1])
 INNER_LOGO_SIZE = 415  # maximum logo square size
 CURRENT_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -57,7 +57,7 @@ except ImportError:
 
 
 def get_image_info(data):
-    w, h = struct.unpack(b'>LL',  bytes(data[16:24], encoding="latin-1"))
+    w, h = struct.unpack(b'>LL', bytes(data[16:24], encoding="latin-1"))
     width = int(w)
     height = int(h)
     return width, height
@@ -217,6 +217,7 @@ def main(logo_path, lang_code):
 
     # remove temp directory
     shutil.rmtree(tmpd)
+
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
