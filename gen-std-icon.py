@@ -25,14 +25,14 @@ import re
 import struct
 import tempfile
 import shutil
-import StringIO
+from io import StringIO
 from subprocess import call
 
 SIZE = 512  # final icon size
 WHITE_CANVAS_SIZE = 464
 MARKER_SIZE = 85  # square size of the offline and lang markers
-LANG_POSITION = (42, 386)  # X, Y of language code marker
-OFFLINE_POSITION = (LANG_POSITION[0] + MARKER_SIZE + SIZE * 0.05,
+LANG_POSITION = (SIZE/2 - MARKER_SIZE - 10, 386)  # X, Y of language code marker
+OFFLINE_POSITION = (SIZE/2 + 10,
                     LANG_POSITION[1])
 INNER_LOGO_SIZE = 415  # maximum logo square size
 CURRENT_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -57,17 +57,10 @@ except ImportError:
 
 
 def get_image_info(data):
-    if is_png(data):
-        w, h = struct.unpack(b'>LL', data[16:24])
-        width = int(w)
-        height = int(h)
-    else:
-        raise Exception('not a png image')
+    w, h = struct.unpack(b'>LL',  bytes(data[16:24], encoding="latin-1"))
+    width = int(w)
+    height = int(h)
     return width, height
-
-
-def is_png(data):
-    return (data[:8] == b'\211PNG\r\n\032\n'and (data[12:16] == 'IHDR'))
 
 
 def syscall(args, shell=False, with_print=True):
@@ -171,11 +164,7 @@ def main(logo_path, lang_code):
         logger.error("Unable to find logo file at `{}`".format(layer1))
         sys.exit(1)
 
-    try:
-        logo_w, logo_h = get_image_info(open(layer1, 'r').read())
-    except:
-        logger.error("Unable to get logo width and height. Is it a PNG file?")
-        sys.exit(1)
+    logo_w, logo_h = get_image_info(open(layer1, 'r', encoding="latin-1").read())
 
     if not logo_w == logo_h:
         logger.warning("Your logo image is not square ({}x{}). "
