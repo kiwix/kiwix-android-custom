@@ -7,5 +7,6 @@
   "zim_file": "content.zim",
   "embed_zim": false,
   "ic_launcher": "icon.png",
+  "ic_launcher_master": "icon_master.png",
   "enforced_lang": "en"
 }
