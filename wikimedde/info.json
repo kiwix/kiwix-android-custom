@@ -1,5 +1,9 @@
 {
   "app_name": "Wikipedia Medizin (Offline)",
   "zim_url": "https://download.kiwix.org/zim/wikipedia/wikipedia_de_medicine_novid_2018-10.zim",
+  "zim_file": "content.zim",
+  "embed_zim": false,
+  "ic_launcher": "icon.png",
+  "ic_launcher_master": "icon_master.png",
   "enforced_lang": "de"
 }
