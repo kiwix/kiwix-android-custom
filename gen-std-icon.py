@@ -2,7 +2,11 @@
 # -*- coding: utf-8 -*-
 # vim: ai ts=4 sts=4 et sw=4 nu
 
-''' Generate an Android ic_launcher friendly icon from a PNG logo
+""" Generate an Android ic_launcher friendly icon from a PNG logo
+
+    Requirements:
+     - imagemagick
+     - python3
 
     Generated icon is a 512x512 piels wide 24b transparent PNG.
     It contains a transparent background canvas (which can be
@@ -10,21 +14,22 @@
     It then adds a resized version of the provided logo in the center
     Then adds two markers:
         An offline marker indicating it's OFFLINE (bared WiFi icon)
-        A lang  marker using a bubbled flag
+        A lang  marker using a bubbled flag (only added if version code supplied)
 
     Script can be called with either a local PNG file or an URL to PNG.
 
-    The supported languages are based on the template flag-bubbles icons. '''
+    The supported languages are based on the template flag-bubbles icons. """
 
 from __future__ import (unicode_literals, absolute_import,
                         division, print_function)
+
 import logging
-import sys
 import os
 import re
-import struct
-import tempfile
 import shutil
+import struct
+import sys
+import tempfile
 from io import StringIO
 from subprocess import call
 
@@ -37,7 +42,7 @@ OFFLINE_POSITION = (SIZE / 2 + 10,
 INNER_LOGO_SIZE = 415  # maximum logo square size
 CURRENT_PATH = os.path.dirname(os.path.abspath(__file__))
 SUPPORTED_LANGS = [re.search(r'launcher\-flag\-([a-z]{2})\.png', fname)
-                     .group(1)
+                       .group(1)
                    for fname in os.listdir(os.path.join(CURRENT_PATH,
                                                         'templates'))
                    if 'launcher-flag' in fname]
@@ -141,14 +146,14 @@ def sq_resize(path, size, new_path=None):
     return resize(path, size, size, new_path)
 
 
-def main(logo_path, lang_code):
-
-    if lang_code not in SUPPORTED_LANGS:
-        logger.error("No image template for language code `{}`.\n"
-                     "Please download a square PNG bubble flag for that lang "
-                     "and store it in templates/ with proper name."
-                     .format(lang_code))
-        sys.exit(1)
+def main(logo_path, lang_code=None):
+    if lang_code is not None:
+        if lang_code not in SUPPORTED_LANGS:
+            logger.error("No image template for language code `{}`.\n"
+                         "Please download a square PNG bubble flag for that lang "
+                         "and store it in templates/ with proper name."
+                         .format(lang_code))
+            sys.exit(1)
 
     # create a temp directory to store our stalls
     tmpd = tempfile.mkdtemp()
@@ -205,22 +210,23 @@ def main(logo_path, lang_code):
                     x=OFFLINE_POSITION[0], y=OFFLINE_POSITION[1]))
 
     # multiply layer1p2 (white + logo + offline) with lang marker (layer3)
-    layer2p3 = os.path.join(tmpd, 'layer2_layer3.png')
-    syscall('composite -geometry +{x}+{y} {l3} {l1p2} {l2p3}'
-            .format(l3=layer3, l1p2=layer1p2, l2p3=layer2p3,
-                    x=LANG_POSITION[0], y=LANG_POSITION[1]))
+    if lang_code is not None:
+        layer2p3 = os.path.join(tmpd, 'layer2_layer3.png')
+        syscall('composite -geometry +{x}+{y} {l3} {l1p2} {l2p3}'
+                .format(l3=layer3, l1p2=layer1p2, l2p3=layer2p3,
+                        x=LANG_POSITION[0], y=LANG_POSITION[1]))
 
     # copy final result to current directory
     icon_path = os.path.join(CURRENT_PATH,
                              'ic_launcher_512_{}.png'.format(lang_code))
-    shutil.copy(layer2p3, icon_path)
+    if lang_code is None:
+        shutil.copy(layer1p2, icon_path)
+    else:
+        shutil.copy(layer2p3, icon_path)
 
     # remove temp directory
     shutil.rmtree(tmpd)
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 3:
-        print('Usage:\t{} <logo_path> <lang-code>'.format(sys.argv[0]))
-        sys.exit(1)
     main(*sys.argv[1:])
