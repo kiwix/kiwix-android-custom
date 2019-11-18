@@ -1,6 +1,5 @@
 {
   "ic_launcher": "icon.png",
-  "ic_launcher_master": "icon_master.png",
   "app_name": "Wikivoyage",
   "package": "org.kiwix.kiwixcustomwikivoyage",
   "zim_file": "content.zim",
