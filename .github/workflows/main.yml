@@ -1,0 +1,44 @@
+name: Publish Custom App
+
+on:
+  push:
+    branches-ignore:
+      - '*'
+      - '*/**'
+    tags:
+      - '*'
+      - '*/**'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+        -
+      - name: Clone Kiwix-Android
+        run: git clone --single-branch --branch feature/macgills/custom-app-icon-upgrade https://github.com/kiwix/kiwix-android.git
+
+      - name: Copy json files into Kiwix-Android
+        run: bash copy_json_to_kiwix_android.sh
+
+      - name: Decrypt files
+        env:
+          keystore: ${{ secrets.keystore }}
+          google_json: ${{ secrets.google_json }}
+        run: |
+          echo "$google_json" | base64 -d > kiwix-android/google.json
+          echo "$keystore" | base64 -d > kiwix-android/kiwix-android.keystore
+
+      - name: Set tag variable
+        run: echo ::set-env name=TAG::$(echo ${GITHUB_REF:10})
+
+      - name: Publish app
+        env:
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          KEY_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
+        run: |
+          cd kiwix-android
+          eval "./gradlew publish${TAG^}ReleaseApkWithExpansionFile"
