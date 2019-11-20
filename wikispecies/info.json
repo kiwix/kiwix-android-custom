@@ -1,9 +1,5 @@
 {
   "app_name": "WikiSpecies",
-  "package": "org.kiwix.kiwixcustomwikispecies",
-  "version_name": "2018-08",
   "zim_url": "https://download.kiwix.org/zim/wikispecies/wikispecies_en_all_novid_2018-08.zim",
-  "embed_zim": false,
-  "ic_launcher": "icon.png",
   "enforced_lang": "en"
 }
