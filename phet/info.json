@@ -4,7 +4,6 @@
   "version_name": "2018-09",
   "version_code": "3",
   "zim_url": "https://download.kiwix.org/zim/phet/phet_mul_2018-09.zim",
-  "zim_file": "content.zim",
   "embed_zim": false,
   "ic_launcher": "icon.png",
   "enforced_lang": "en"

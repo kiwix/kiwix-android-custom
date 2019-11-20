@@ -4,7 +4,6 @@
   "version_name": "2018-07",
   "version_code": "4",
   "zim_url": "https://download.kiwix.org/zim/wikipedia/wikipedia_zh_medicine_novid_2018-07.zim",
-  "zim_file": "content.zim",
   "embed_zim": false,
   "ic_launcher": "icon.png",
   "enforced_lang": "zh"

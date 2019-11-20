@@ -2,7 +2,6 @@
   "ic_launcher": "ic_launcher_512_bm.png",
   "app_name": "Wikip\u00e9dia BM",
   "package": "org.kiwix.kiwixcustomwpbm",
-  "zim_file": "/Users/reg/Downloads/wikipedia_bm_all_2015-06.zim",
   "play_store": {
     "images": {
       "featureGraphic": [

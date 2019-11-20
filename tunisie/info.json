@@ -3,7 +3,6 @@
   "package": "org.kiwix.kiwixcustomtunisie",
   "version_name": "2018-07",
   "zim_url": "https://download.kiwix.org/zim/wikipedia_fr_tunisie_novid.zim",
-  "zim_file": "content.zim",
   "embed_zim": false,
   "ic_launcher": "icon.png",
   "enforced_lang": "fr"

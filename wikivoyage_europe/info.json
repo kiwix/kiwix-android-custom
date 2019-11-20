@@ -4,7 +4,6 @@
   "package": "org.kiwix.kiwixcustomwikivoyageeurope",
   "version_name": "2018-10",
   "zim_url": "https://download.kiwix.org/zim/wikivoyage/wikivoyage_en_europe_novid_2018-10.zim",
-  "zim_file": "content.zim",
   "play_store": {
     "images": {
       "featureGraphic": [],

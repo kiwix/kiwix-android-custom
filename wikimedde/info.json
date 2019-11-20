@@ -3,7 +3,6 @@
   "package": "org.kiwix.kiwixcustomwikimedde",
   "version_name": "2018-10",
   "zim_url": "https://download.kiwix.org/zim/wikipedia/wikipedia_de_medicine_novid_2018-10.zim",
-  "zim_file": "content.zim",
   "embed_zim": false,
   "ic_launcher": "icon.png",
   "enforced_lang": "de"
