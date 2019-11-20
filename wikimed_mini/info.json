@@ -1,9 +1,5 @@
 {
   "app_name": "Offline WikiMed mini",
-  "package": "org.kiwix.kiwixcustomwikimedmini",
-  "version_name": "2018-07",
   "zim_url": "http://download.kiwix.org/zim/wikipedia/wikipedia_en_medicine_nodet_2018-07.zim",
-  "embed_zim": false,
-  "ic_launcher": "icon.png",
   "enforced_lang": "en"
 }

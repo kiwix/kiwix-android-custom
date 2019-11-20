@@ -1,9 +1,5 @@
 {
   "app_name": "ویکی‌پدیای پزشکی (آفلاین)",
-  "package": "org.kiwix.kiwixcustomwikimedfa",
-  "version_name": "2018-07",
   "zim_url": "https://download.kiwix.org/zim/wikipedia/wikipedia_fa_medicine_novid_2018-07.zim",
-  "embed_zim": false,
-  "ic_launcher": "icon.png",
   "enforced_lang": "fa"
 }

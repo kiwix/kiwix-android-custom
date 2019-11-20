@@ -1,10 +1,5 @@
 {
   "app_name": "ମେଡିକାଲ ଉଇକିପିଡିଆ (ଅଫଲାଇନ)",
-  "package": "org.kiwix.kiwixcustomwikimedor",
-  "version_name": "2018-07",
-  "version_code": "2",
   "zim_url": "https://download.kiwix.org/zim/wikipedia/wikipedia_or_medicine_novid_2018-07.zim",
-  "embed_zim": false,
-  "ic_launcher": "icon.png",
   "enforced_lang": "or"
 }
