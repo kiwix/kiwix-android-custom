@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-        -
+
       - name: Clone Kiwix-Android
         run: git clone --single-branch --branch feature/macgills/custom-app-icon-upgrade https://github.com/kiwix/kiwix-android.git
 
