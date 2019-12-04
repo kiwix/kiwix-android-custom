@@ -90,6 +90,23 @@ These instructions are for a first time setup, you can reuse this
 project in the future for icon generation so many steps can be
 omitted.
 
+## Version name
+
+The custom app will have a version name displayed on the Google Play
+store. This version name has to be a date in the format YYYY-MM (for
+example `2018-10`. This version name should be the date of the content
+(neither the date of the Software nor the release date).
+
+The app version name is determined in that order:
+1. The date can be hardcoded in the json file at the key
+`version_name`. Considering that this needs maintenance and that the
+publisher can easily create a discrepency with the ZIM content date,
+this should probably be avoided in most of the time.
+1. If nothing is specified in the json, then it tries to extract it
+from the ZIM file name. If the file is
+`wikipedia_en_all_maxi_2018-10.zim` then it will be `2018-10`.
+1. Otherwise the current date will be put (should be avoided).
+
 ## Releasing
 
 Simply tag the repo in git with the name of a custom app eg
