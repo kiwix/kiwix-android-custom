@@ -103,7 +103,7 @@ The app version name is determined in that order:
 publisher can easily create a discrepency with the ZIM content date,
 this should probably be avoided in most of the time.
 1. If nothing is specified in the json, then it tries to extract it
-from the ZIM file name. If the file is
+from the ZIM file name. If the file - specified in `zim_url` - is
 `wikipedia_en_all_maxi_2018-10.zim` then it will be `2018-10`.
 1. Otherwise the current date will be put (should be avoided).
 
@@ -120,9 +120,14 @@ Simply tag the repo in git with the name of a custom app eg
 
 ## Building Locally
 
-Copy a custom app directory to `kiwix-android/custom/src`.  If using
-Android Studio this will add the build variant and you can install as
-you would any app.
+First of all the Kiwix Android needs to be cloned locally:
+```bash
+git clone https://github.com/kiwix/kiwix-android.git
+```
+
+Copy then a custom app directory to `kiwix-android/custom/src`.  If
+using Android Studio this will add the build variant and you can
+install as you would any app.
 
 Alternatively run `./gradlew
  install[CustomAppNameWithFirstLetterCapitalised]Debug` eg `./gradlew
