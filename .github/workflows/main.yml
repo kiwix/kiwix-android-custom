@@ -44,6 +44,6 @@ jobs:
           eval "./gradlew publish${TAG^}ReleaseApkWithExpansionFile"
 
       - uses: actions/upload-artifact@v1
-          with:
-            name: build_outputs
-            path: kiwix-android/custom/build/outputs
+        with:
+          name: build_outputs
+          path: kiwix-android/custom/build/outputs
