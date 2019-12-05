@@ -129,7 +129,7 @@ Copy then a custom app directory to `kiwix-android/custom/src`.  If
 using Android Studio this will add the build variant and you can
 install as you would any app.
 
-Alternatively run `./gradlew
+Alternatively - if you are more export - you can run `./gradlew
  install[CustomAppNameWithFirstLetterCapitalised]Debug` eg `./gradlew
  installPhetDebug` from the kiwix-android folder
 
@@ -141,28 +141,31 @@ The custom app, as built and installed by the Gradle script currently
  files in custom app).  So unless you need to test obb file reading
  you can stop here.
 
-To test reading `.obb` files you need the file to be on the device.
+To test reading an `.obb` file you need the file to be on the device.
  Here's an overview of the steps involved. You may need to tweak these
  for your app, environment and device, etc.
 
-Download the ZIM file to your computer e.g. for PhET download the ZIM
-file specified in
+Download first the ZIM file to your computer e.g. for PhET download
+the ZIM file specified in
 https://github.com/kiwix/kiwix-android-custom/blob/master/phet/info.json
-by `"zim_url":`.
+by the json key `zim_url`.
 
-Get this onto the device in the folder `/sdcard` e.g. using the
-Android `adb push` command-line utility or more simply by using Device
-File Exlporer in Android Studio. Copy this file to the location
-expected by the app.  This is often a deeply nested folder, and with a
-complex filename that's constructed based on parameters used when
-creating the custom app. Here's an example of the command I used on a
-locally connected device that is configured as a developer's device
-(details of how to do this are beyond the scope of these notes).
+The Android obb dedicated directory is not always at the exact same
+place on the Android device, usually it can be found at
+`/sdcard/Android/obb/`. One time you will have found it, you will have
+to create a directory for your custom app based on its Android id, for
+example `org.kiwix.kiwixcustomphet` (`org.kiwix.kiwixcustom` + name of
+the app directory).
+
+You have then to get the ZIM file onto the device custom app obb
+folder using the Android `adb push` command-line utility or more
+simply by using Device File Exlporer in Android Studio. The obb
+filename should be `main.4.` + app id + `.obb`. Here's an example:
 ```bash
 adb push ~/Downloads/kiwix/phet_mul_2019-06.zim /sdcard/
 adb shell
 cd /sdcard/Android/obb/
 mkdir org.kiwix.kiwixcustomphet
 cd org.kiwix.kiwixcustomphet
-cp /sdcard/phet_mul_2019-06.zim main.4.org.kiwix.kiwixcustomphet.obb
+mv /sdcard/phet_mul_2019-06.zim main.4.org.kiwix.kiwixcustomphet.obb
 ```
