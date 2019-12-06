@@ -36,8 +36,7 @@
       "defaultLanguage": "en-US"
     }
   },
-  "version_code": "5",
   "embed_zim": false,
+  "zim_url": "https://download.kiwix.org/zim/wikipedia/wikipedia_bm_all_maxi_2019-10.zim",
   "enforced_lang": "bm",
-  "version_name": "2015-06"
 }
