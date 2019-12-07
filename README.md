@@ -169,3 +169,9 @@ mkdir org.kiwix.kiwixcustomphet
 cd org.kiwix.kiwixcustomphet
 mv /sdcard/phet_mul_2019-06.zim main.4.org.kiwix.kiwixcustomphet.obb
 ```
+
+License
+-------
+
+[GPLv3](https://www.gnu.org/licenses/gpl-3.0) or later, see
+[LICENSE](LICENSE) for more details.
