@@ -11,53 +11,61 @@ This project contains data and scripts needed to create specific
  done separately by running the relevant Gradle command to build one
  or more custom apps.
 
-## Prerequisites
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-Python 3 for the scripts in Python. On Debian based GNU/Linux you can
-install it with:
-```bash
-apt-get install python3
-```
+## Disclaimer
 
-[Imagemagick](https://imagemagick.org/) is needed by
-`gen-std-icon.py`. On Debian based GNU/Linux you can
-install it with:
-```bash
-apt-get install imagemagick
-```
+This document is for end-users who are the publisher of new custom
+apps. If you are a developer and want to have an in-depth
+understanding about the custom apps, please read
+[CONTRIBUTING.md](CONTRIBUTING.md).
 
-Android studio is required to generate icon sets and can be downloaded
-from [here](https://developer.android.com/studio/?gclid=Cj0KCQiAiNnuBRD3ARIsAM8KmlvCImKxWu_AGECa8YM5pM7Nr_algyHXSkfbPRTio3WEeKTaEfFiFeIaAs81EALw_wcB).
+## Custom app folder
 
-On macOS, [Homebrew](https://brew.sh) allows to install the packages
-`python3` and `imagemagick`.
+[In the repository](https://github.com/kiwix/kiwix-android-custom),
+each custom configuration is isolated in a so called custom app
+folder. If you need to create a new one for a new custom app, you can
+do that easily using Github UI. Go to
+https://github.com/kiwix/kiwix-android-custom/new/master, put the name
+of your app (no space, lowercase only) and add a slash at the end.
 
-## Badges
+## Description json file
 
-Custom apps use to have icon with two small badges to help user
-understanding what the app is about:
-* One reprsenting the language of the content
-* One representing the stricked WiFi logo to emphasis its offline nature
+The configuration of the custom app is handled using the `info.json`
+file which is in the custom app folder. Take example on an already
+existing one if you need to create a new custom app. The most
+important fields are:
+- `app_name`, the title of the app
+- `zim_url`, the ZIM online URL (to download to create the app)
+- `enforced_lang`, the language code of the content (and the app UI)
 
-The script `gen-std-icon.py` allows to add these two badges easily on
-a master icon. You can use it that way:
-```bash
-python3 gen-std-icon.py [custom_app_directory]/icon_master.png [optional language code]
-```
+You can also create this new file using Github IO. Go to
+https://github.com/kiwix/kiwix-android-custom/new/master and type
+`info.json`.
 
-The `custom_app_directory` needs to be one of the listed sub-folders
-e.g. `phet`. If this is a new custom app, you will have to create it.
+Remark: If you make a simple update, just replace the `zim_url` with
+the latest available zim from
+[download.kiwix.org/zim](https://download.kiwix.org/zim). Then comment
+your commit (e.g. "updated to YYYY-MM zim") and commit directly to
+`master` branch. You won't have to change anything more than this
+(just tagging the release, see below).
 
-The `optional language code` parameter for english would be `en`, if
- you omit this parameter then no language badge is added, this is
- desired in a few cases where the language is already clearly
- indicated by the master icon e.g. `wikimedde`.
+## Icon master
+
+The Icon master is file `icon.png` you find (or have to create) in the
+custom app folder. It is a square PNG file which is used as master to
+create the Icon set (see section below). This master has to match many
+constraints and you might even have to create an `icon_foreground.png`
+and `icon_baground.png` to achieve to do certain things. Look at the
+[Android documentation about adaptive
+icons](https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive)
+to know more.
 
 ## Icon set
 
 The Android custom app needs an _Icon set_ to build properly. This
-Icon set is a list of bitmap pictures which are derivatives of the
-Icon master from the section above.
+Icon set is needed to properly show the app icon on user devices and
+is a list of bitmap pictures which are derivatives of an icon master.
 
 To create this Icon set, follow these steps:
 
@@ -110,65 +118,25 @@ from the ZIM file name. If the file - specified in `zim_url` - is
 ## Releasing
 
 Simply tag the repo in git with the name of a custom app eg
- `wikimed`. This triggers a Github action that will build an app using
- kiwix-android master branch and the icon set/json defined in this
- repository and then upload it to the Play Console in draft to alpha
- with an expansion file attached.
+ `wikimed`. Go to the [release
+ tab](https://github.com/kiwix/kiwix-android-custom/releases) and
+ click on "Draft a new release". As "tag version" use the custom app
+ folder name (e.g. `wikimedar`). Publish without adding a release
+ title or description (not needed).
 
- This will only work with app updates. To create a new custom app an
- app must be built manually and submit to the Google Play store
+This triggers a [Github
+ action](https://github.com/kiwix/kiwix-android-custom/actions) that
+ will build an app using kiwix-android master branch and the icon
+ set/json defined in this repository and then upload it to the Play
+ Console in draft to alpha with an expansion file attached. Therefore,
+ go to the [Google Play Store Admin
+ dashboard](https://play.google.com/apps/publish) for the
+ corresponding app and go to menu "Publication management" > "App version":
+ under "Alpha", you can click on "Modify version". After a couple of hours
+ the new version of the app should be listed in the public Play Store.
 
-## Building Locally
-
-First of all the Kiwix Android needs to be cloned locally:
-```bash
-git clone https://github.com/kiwix/kiwix-android.git
-```
-
-Copy then a custom app directory to `kiwix-android/custom/src`.  If
-using Android Studio this will add the build variant and you can
-install as you would any app.
-
-Alternatively - if you are more export - you can run `./gradlew
- install[CustomAppNameWithFirstLetterCapitalised]Debug` eg `./gradlew
- installPhetDebug` from the kiwix-android folder
-
-## Testing locally
-
-The custom app, as built and installed by the Gradle script currently
- _does not include the ZIM file_ but it does prompt you to download
- the file if it doesn't find an `.obb` (this is the extension for ZIM
- files in custom app).  So unless you need to test obb file reading
- you can stop here.
-
-To test reading an `.obb` file you need the file to be on the device.
- Here's an overview of the steps involved. You may need to tweak these
- for your app, environment and device, etc.
-
-Download first the ZIM file to your computer e.g. for PhET download
-the ZIM file specified in
-https://github.com/kiwix/kiwix-android-custom/blob/master/phet/info.json
-by the json key `zim_url`.
-
-The Android obb dedicated directory is not always at the exact same
-place on the Android device, usually it can be found at
-`/sdcard/Android/obb/`. One time you will have found it, you will have
-to create a directory for your custom app based on its Android id, for
-example `org.kiwix.kiwixcustomphet` (`org.kiwix.kiwixcustom` + name of
-the app directory).
-
-You have then to get the ZIM file onto the device custom app obb
-folder using the Android `adb push` command-line utility or more
-simply by using Device File Exlporer in Android Studio. The obb
-filename should be `main.4.` + app id + `.obb`. Here's an example:
-```bash
-adb push ~/Downloads/kiwix/phet_mul_2019-06.zim /sdcard/
-adb shell
-cd /sdcard/Android/obb/
-mkdir org.kiwix.kiwixcustomphet
-cd org.kiwix.kiwixcustomphet
-mv /sdcard/phet_mul_2019-06.zim main.4.org.kiwix.kiwixcustomphet.obb
-```
+Remark: This will only work with app updates. To create a new custom
+ app an app must be built manually and submit to the Google Play store
 
 License
 -------
