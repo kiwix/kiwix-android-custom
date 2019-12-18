@@ -1,5 +1,5 @@
 {
   "app_name": "Offline WikiMed mini",
-  "zim_url": "http://download.kiwix.org/zim/wikipedia/wikipedia_en_medicine_nodet_2018-07.zim",
+  "zim_url": "http://download.kiwix.org/zim/wikipedia/wikipedia_en_medicine_mini_2019-12.zim",
   "enforced_lang": "en"
 }
