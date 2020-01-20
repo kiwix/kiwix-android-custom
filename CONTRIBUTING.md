@@ -94,3 +94,17 @@ mkdir org.kiwix.kiwixcustomphet
 cd org.kiwix.kiwixcustomphet
 mv /sdcard/phet_mul_2019-06.zim main.4.org.kiwix.kiwixcustomphet.obb
 ```
+
+## Releasing App Updates Without Updating ZIM Content
+
+1. You add a tag to the repo through git with the name of one of the
+ custom app folders.
+1. This triggers a github action and uploads an `apk` and `obb` file to the 
+play console to `alpha` in `draft`.
+1. Go to the listing in `draft` on the play console
+ `[appName]>Release Management>App Releases>Alpha`
+1. For each new apk listed click the `+` icon on the right hand side of
+ the apk list item
+1. Select the `obb` file for the previous app version
+1. To release to the public you go through the chain of promoting to
+ `alpha`->`beta`->`production`
