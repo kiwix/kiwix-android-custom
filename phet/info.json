@@ -1,6 +1,6 @@
 {
   "app_name": "PhET",
-  "zim_url": "http://tmp.kiwix.org/phets_app_2018-09.zim",
+  "zim_url": "https://mirror.download.kiwix.org/zim/phet/phet_mul_2020-04.zim",
   "enforced_lang": "en",
   "disable_sidebar": true,
   "disable_tabs": true,
