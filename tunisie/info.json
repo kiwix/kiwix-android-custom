@@ -1,5 +1,5 @@
 {
   "app_name": "Encyclopédie de la Tunisie",
-  "zim_url": "https://download.kiwix.org/zim/wikipedia/wikipedia_fr_tunisie_maxi_2019-10.zim",
+  "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikipedia_fr_tunisie_maxi_2021-01.zim",
   "enforced_lang": "fr"
 }
