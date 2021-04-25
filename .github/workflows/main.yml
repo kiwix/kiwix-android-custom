@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Clone Kiwix-Android
-        run: git clone --single-branch --branch develop https://github.com/kiwix/kiwix-android.git
+        run: git clone --single-branch --branch Update_NDK_version https://github.com/kiwix/kiwix-android.git
 
       - name: Copy files into Kiwix-Android
         run: bash copy_files_to_kiwix_android.sh
