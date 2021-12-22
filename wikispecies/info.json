@@ -1,5 +1,5 @@
 {
   "app_name": "WikiSpecies",
-  "zim_url": "https://download.kiwix.org/zim/.hidden/custom_apps/wikispecies_en_all_maxi_2021-06.zim",
+  "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikispecies_en_all-app_maxi_2021-12.zim",
   "enforced_lang": "en"
 }
