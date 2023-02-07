@@ -1,13 +1,8 @@
 name: Publish Custom App
 
 on:
-  push:
-    branches-ignore:
-      - '*'
-      - '*/**'
-    tags:
-      - '*'
-      - '*/**'
+  release:
+    types: [published]
 
 jobs:
   build:
