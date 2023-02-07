@@ -5,14 +5,12 @@ on:
     types: [published]
 
 jobs:
-  build:
-
+  publish:
     runs-on: ubuntu-22.04
 
     steps:
-
       - name: Retrieving custom app configuration
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
       - name: Retrieving Kiwix Android source code
         run: git clone --depth=1 --single-branch --branch develop https://github.com/kiwix/kiwix-android.git
