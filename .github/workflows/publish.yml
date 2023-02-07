@@ -16,7 +16,7 @@ jobs:
         run: git clone --depth=1 --single-branch --branch develop https://github.com/kiwix/kiwix-android.git
 
       - name: Copying custom app configuration into Kiwix Android code base
-        run: bash copy_files_to_kiwix_android.sh
+        run: ./copy_files_to_kiwix_android.sh
 
       - name: Preparing signing material
         env:
