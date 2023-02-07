@@ -117,12 +117,17 @@ from the ZIM file name. If the file - specified in `zim_url` - is
 
 ## Releasing
 
-Simply tag the repo in git with the name of a custom app eg
- `wikimed`. Go to the [release
+Simply tag the repo in git with the name of a custom app, for example:
+```bash
+git tag -f tunisie
+git push -f origin tunisie
+```
+
+then Go to the [release
  tab](https://github.com/kiwix/kiwix-android-custom/releases) and
  click on "Draft a new release". As "tag version" use the custom app
- folder name (e.g. `wikimedar`). Publish without adding a release
- title or description (not needed).
+ folder name (e.g. `wikimedar`). Publish by adding for example "WikiMed FA
+ 2021-06" as title, no description is needed.
 
 This triggers a [Github
  action](https://github.com/kiwix/kiwix-android-custom/actions) that
