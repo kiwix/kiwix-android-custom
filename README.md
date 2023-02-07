@@ -1,10 +1,16 @@
-# Kiwix Android custom apps
+# Kiwix Android Custom Apps
 
 Kiwix Android custom apps are Android apps running [Kiwix for
-Android](https://github.com/kiwix/kiwix-android) ZIM reader against a
+Android](https://github.com/kiwix/kiwix-android) against a
 pre-configured ZIM file.
 
-Kiwix publishes more than [a dozen of such apps](https://play.google.com/store/apps/collection/cluster?clp=igM6ChkKEzkxMTYyMTU3Njc1NDE4NTc0OTIQCBgDEhsKFW9yZy5raXdpeC5raXdpeG1vYmlsZRABGAMYAQ%3D%3D:S:ANO1ljKl_Lw&gsr=Cj2KAzoKGQoTOTExNjIxNTc2NzU0MTg1NzQ5MhAIGAMSGwoVb3JnLmtpd2l4Lmtpd2l4bW9iaWxlEAEYAxgB:S:ANO1ljLrUVU). [Wikimed - Offline Medical Wikipedia](https://play.google.com/store/apps/details?id=org.kiwix.kiwixcustomwikimed) and [Wikivoyage - Offline Travel Guide](https://play.google.com/store/apps/details?id=org.kiwix.kiwixcustomwikivoyage) being the most famous ones.
+Kiwix publishes more than [a dozen of such
+apps](https://play.google.com/store/apps/collection/cluster?clp=igM6ChkKEzkxMTYyMTU3Njc1NDE4NTc0OTIQCBgDEhsKFW9yZy5raXdpeC5raXdpeG1vYmlsZRABGAMYAQ%3D%3D:S:ANO1ljKl_Lw&gsr=Cj2KAzoKGQoTOTExNjIxNTc2NzU0MTg1NzQ5MhAIGAMSGwoVb3JnLmtpd2l4Lmtpd2l4bW9iaWxlEAEYAxgB:S:ANO1ljLrUVU). [Wikimed
+- Offline Medical
+Wikipedia](https://play.google.com/store/apps/details?id=org.kiwix.kiwixcustomwikimed)
+and [Wikivoyage - Offline Travel
+Guide](https://play.google.com/store/apps/details?id=org.kiwix.kiwixcustomwikivoyage)
+being the most famous ones.
 
 This project contains data and scripts needed to create specific
  custom Kiwix Android apps.  _It does *not* create the app_, that's
@@ -16,10 +22,9 @@ This project contains data and scripts needed to create specific
 
 ## Disclaimer
 
-This document is for end-users who are the publisher of new custom
-apps. If you are a developer and want to have an in-depth
-understanding about the custom apps, please read
-[CONTRIBUTING.md](CONTRIBUTING.md).
+This document is for publishers who aim to publish new custom apps. If
+you are a developer and want to have an in-depth understanding about
+the custom apps, please read [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Custom app folder
 
