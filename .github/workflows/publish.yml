@@ -10,15 +10,17 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
+
+      - name: Retrieving custom app configuration
       - uses: actions/checkout@v3
 
-      - name: Clone Kiwix-Android
+      - name: Retrieving Kiwix Android source code
         run: git clone --single-branch --branch develop https://github.com/kiwix/kiwix-android.git
 
-      - name: Copy files into Kiwix-Android
+      - name: Copying custom app configuration into Kiwix Android code base
         run: bash copy_files_to_kiwix_android.sh
 
-      - name: Decrypt files
+      - name: Preparing signing material
         env:
           keystore: ${{ secrets.keystore }}
           google_json: ${{ secrets.google_json }}
@@ -26,14 +28,12 @@ jobs:
           echo "$google_json" | base64 -d > kiwix-android/google.json
           echo "$keystore" | base64 -d > kiwix-android/kiwix-android.keystore
 
-      - name: Set tag variable
-        run: echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
-
-      - name: Publish app
+      - name: Publishing app to Google Play
         env:
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
           KEY_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
         run: |
           cd kiwix-android
+          echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
           eval "./gradlew publish${TAG^}ReleaseApkWithExpansionFile"
