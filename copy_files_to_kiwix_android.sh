@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+!/bin/bash
+
 
 for f in *; do # for all files in current directory
     if [ -d ${f} ]; then # if it is a directory
