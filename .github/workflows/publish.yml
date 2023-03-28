@@ -35,4 +35,4 @@ jobs:
         run: |
           cd kiwix-android
           echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
-          eval "./gradlew publishWikimedReleaseApkWithExpansionFile"
+          eval "./gradlew publish${TAG}ReleaseApkWithExpansionFile"
