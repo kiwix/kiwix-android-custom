@@ -21,7 +21,7 @@ jobs:
       - name: Preparing signing material
         env:
           keystore: ${{ secrets.keystore }}
-          google_json: ${{ secrets.google_json }}
+          google_json: ${{ secrets.PLAYSTORE_JSON }}
         run: |
           echo "$google_json" | base64 -d > kiwix-android/google.json
           echo "$keystore" | base64 -d > kiwix-android/kiwix-android.keystore
