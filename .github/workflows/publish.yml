@@ -20,11 +20,11 @@ jobs:
 
       - name: Preparing signing material
         env:
-          keystore: ${{ secrets.keystore }}
-          playstore_json: ${{ secrets.PLAYSTORE_JSON }}
+          KEYSTORE: ${{ secrets.keystore }}
+          PLAYSTORE_JSON: ${{ secrets.PLAYSTORE_JSON }}
         run: |
-          echo "$playstore_json" > kiwix-android/playstore.json
-          echo "$keystore" | base64 -d > kiwix-android/kiwix-android.keystore
+          echo "$PLAYSTORE_JSON" > kiwix-android/playstore.json
+          echo "$KEYSTORE" | base64 -d > kiwix-android/kiwix-android.keystore
 
       - name: Set tag variable
         run: echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
