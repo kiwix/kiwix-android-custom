@@ -26,6 +26,9 @@ jobs:
           echo "$playstore_json" > kiwix-android/playstore.json
           echo "$keystore" | base64 -d > kiwix-android/kiwix-android.keystore
 
+      - name: Set tag variable
+        run: echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
+
       - name: Publishing app to Google Play
         env:
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
@@ -33,5 +36,4 @@ jobs:
           KEY_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
         run: |
           cd kiwix-android
-          echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
-          eval "./gradlew publish${TAG^}ReleaseApkWithExpansionFile --scan"
+          eval "./gradlew publish${TAG^}ReleaseApkWithExpansionFile"
