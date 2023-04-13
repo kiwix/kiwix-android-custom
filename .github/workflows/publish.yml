@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Retrieving Kiwix Android source code
-        run: git clone --single-branch --branch FixesIssue#2961 https://github.com/kiwix/kiwix-android.git
+        run: git clone --depth=1 --single-branch --branch develop https://github.com/kiwix/kiwix-android.git
 
       - name: Copying custom app configuration into Kiwix Android code base
         run: ./copy_files_to_kiwix_android.sh
