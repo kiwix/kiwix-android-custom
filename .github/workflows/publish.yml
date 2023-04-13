@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Retrieving Kiwix Android source code
-        run: git clone --single-branch --branch develop 91a999f https://github.com/kiwix/kiwix-android.git
+        run: git clone --single-branch --branch FixesIssue#2961 https://github.com/kiwix/kiwix-android.git
 
       - name: Copying custom app configuration into Kiwix Android code base
         run: ./copy_files_to_kiwix_android.sh
@@ -21,11 +21,10 @@ jobs:
       - name: Preparing signing material
         env:
           keystore: ${{ secrets.keystore }}
-          google_json: ${{ secrets.PLAYSTORE_JSON }}
+          playstore_json: ${{ secrets.PLAYSTORE_JSON }}
         run: |
-          echo "$google_json" | base64 -d > kiwix-android/google.json
+          echo "$playstore_json" | base64 -d > kiwix-android/playstore.json
           echo "$keystore" | base64 -d > kiwix-android/kiwix-android.keystore
-      
 
       - name: Publishing app to Google Play
         env:
@@ -35,4 +34,4 @@ jobs:
         run: |
           cd kiwix-android
           echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
-          eval "./gradlew publish${TAG^}ReleaseApkWithExpansionFile"
+          eval "./gradlew publish${TAG^}ReleaseApkWithExpansionFile --scan"
