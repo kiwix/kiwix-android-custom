@@ -3,6 +3,8 @@ name: Publish Custom App
 on:
   release:
     types: [published]
+    branches:
+      - main
 
 jobs:
   publish:
