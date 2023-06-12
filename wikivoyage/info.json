@@ -1,5 +1,5 @@
 {
   "app_name": "Wikivoyage",
-  "zim_url": "https://download.kiwix.org/zim/wikivoyage/wikivoyage_en_all_maxi_2023-02.zim",
+  "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikivoyage_en_all-app_maxi_2023-06.zim",
   "enforced_lang": "en"
 }
