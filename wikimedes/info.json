@@ -1,5 +1,5 @@
 {
   "app_name": "Wikipedia Médica (Offline)",
-  "zim_url": "https://download.kiwix.org/zim/wikipedia/wikipedia_es_medicine_maxi_2020-01.zim",
+  "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikipedia_es_medicine_maxi_2023-06.zim",
   "enforced_lang": "es"
 }
