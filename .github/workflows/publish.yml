@@ -36,6 +36,7 @@ jobs:
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
           KEY_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
+          DWDS_HTTP_BASIC_ACCESS_AUTHENTICATION: ${{ secrets.DWDS_HTTP_BASIC_ACCESS_AUTHENTICATION }}
         run: |
           cd kiwix-android
           eval "./gradlew publish${TAG^}ReleaseApkWithExpansionFile"

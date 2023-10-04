@@ -1,0 +1,5 @@
+{
+  "app_name": "Dwds",
+  "zim_url": "https://{{DWDS_HTTP_BASIC_ACCESS_AUTHENTICATION}}@www.dwds.de/kiwix/f/dwds_de_dictionary_nopic_2023-09-12.zim",
+  "enforced_lang": "de"
+}
