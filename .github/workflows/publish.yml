@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Retrieving Kiwix Android source code
-        run: git clone --depth=1 --single-branch --branch develop https://github.com/kiwix/kiwix-android.git
+        run: git clone --depth=1 --single-branch --branch Issue#3505 https://github.com/kiwix/kiwix-android.git
 
       - name: Copying custom app configuration into Kiwix Android code base
         run: ./copy_files_to_kiwix_android.sh
@@ -39,4 +39,60 @@ jobs:
           DWDS_HTTP_BASIC_ACCESS_AUTHENTICATION: ${{ secrets.DWDS_HTTP_BASIC_ACCESS_AUTHENTICATION }}
         run: |
           cd kiwix-android
-          eval "./gradlew publish${TAG^}ReleaseApkWithExpansionFile"
+          eval "./gradlew publish${TAG^}ReleaseBundleWithPlayAssetDelivery"
+
+  publish_dummy_apk:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Retrieving custom app configuration
+        uses: actions/checkout@v3
+
+      - name: Retrieving Kiwix Android source code
+        run: git clone --depth=1 --single-branch --branch develop https://github.com/kiwix/kiwix-android.git
+
+      - name: Copying custom app configuration into Kiwix Android code base
+        run: ./copy_files_to_kiwix_android.sh
+
+      - name: Preparing signing material
+        env:
+          keystore: ${{ secrets.keystore }}
+        run: |
+          echo "$keystore" | base64 -d > kiwix-android/kiwix-android.keystore
+
+      - name: Set tag variable
+        run: echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
+
+      - name: Should upload dummy APK
+        run: |
+          cd ${TAG}
+          new=$(grep -o '"new": true' info.json)
+          if [ -n "$new" ]; then
+            echo "The 'new' attribute is true, proceeding to publish dummy apk..."
+          else
+            echo "The 'new' attribute is not true, skipping the next job."
+            exit 0  # Skip the job as APK is already published on play store
+          fi
+
+      - name: Generate dummy Bundle
+        env:
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          KEY_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
+          DWDS_HTTP_BASIC_ACCESS_AUTHENTICATION: ${{ secrets.DWDS_HTTP_BASIC_ACCESS_AUTHENTICATION }}
+        run: |
+          cd kiwix-android
+          eval "./gradlew bundle${TAG^}Release"
+
+
+      - name: Get Bundle path
+        id: bundle-path
+        run: |
+          BUNDLE_PATH="kiwix-android/custom/build/outputs/bundle/${TAG}Release/*${TAG}*.aab"
+          echo "::set-output name=bundle_path::$BUNDLE_PATH"    
+
+      - name: Upload APK as an artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: "Dummy Bundle for play store"
+          path: ${{ steps.bundle-path.outputs.bundle_path }}
