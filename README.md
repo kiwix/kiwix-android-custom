@@ -47,6 +47,9 @@ important fields are:
 - `disable_sidebar`, a boolean value, when set to `true`, it hides the sidebar
 - `disable_tabs`, a boolean value, when set to `true`, it deactivates the multi-tabs feature
 - `disable_read_aloud`, a boolean value, when set to `true`, it disable the text-to-speech feature
+- `new`, A boolean value, when set to `true`, it triggers the creation
+  and storage of a dummy release Bundle during the current workflow
+  run.
 
 You can also create this new file using Github IO. Go to
 https://github.com/kiwix/kiwix-android-custom/new/master and type
@@ -140,17 +143,21 @@ then Go to the [release
 
 This triggers a [Github
  action](https://github.com/kiwix/kiwix-android-custom/actions) that
- will build an app using kiwix-android master branch and the icon
- set/json defined in this repository and then upload it to the Play
- Console in draft to alpha with an expansion file attached. Therefore,
- go to the [Google Play Store Admin
- dashboard](https://play.google.com/apps/publish) for the
- corresponding app and go to menu "Publication management" > "App version":
- under "Alpha", you can click on "Modify version". After a couple of hours
- the new version of the app should be listed in the public Play Store.
+ will build an app Bundle using kiwix-android master branch and the
+ illustrations/icons set/json defined in this repository.
 
-Remark: This will only work with app updates. To create a new custom
- app an app must be built manually and submit to the Google Play store
+The very first release has to be done manually. Put the `new`
+[attribute](#description-json-file) so the release management action
+provides you the dummy first bundle to upload.
+
+All other further releases (without the `new` attribute in the
+ `json.info`) are then uploaded automatically to the Google Play app
+ store as draft. Therefore, once released, go then to the [Google Play
+ Store Admin dashboard](https://play.google.com/apps/publish) for the
+ corresponding app and go to menu "Publication management" > "App
+ version": under "Internal Testing", you can click on "Modify
+ version". After a couple of hours the new version of the app should
+ be listed in the public Play Store.
 
 License
 -------
