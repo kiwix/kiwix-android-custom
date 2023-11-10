@@ -90,11 +90,11 @@ jobs:
         run: |
           BUNDLE_PATH="kiwix-android/custom/build/outputs/bundle/${TAG}Release/*${TAG}*.aab"
           BUNDLE_NAME="${TAG^}DummyBundle.aab"
-          echo "::set-output name=bundle_path::$BUNDLE_PATH"    
-          echo "::set-output name=bundle_name::$BUNDLE_NAME"    
+          echo "bundle_path=$BUNDLE_PATH" >> $GITHUB_ENV
+          echo "bundle_name=$BUNDLE_NAME" >> $GITHUB_ENV
 
       - name: Upload Bundle as an artifact
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ steps.bundle-path.outputs.bundle_name }}
-          path: ${{ steps.bundle-path.outputs.bundle_path }}
+          name: ${{ env.bundle_name }}
+          path: ${{ env.bundle_path }}
