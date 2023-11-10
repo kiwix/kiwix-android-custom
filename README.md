@@ -47,6 +47,7 @@ important fields are:
 - `disable_sidebar`, a boolean value, when set to `true`, it hides the sidebar
 - `disable_tabs`, a boolean value, when set to `true`, it deactivates the multi-tabs feature
 - `disable_read_aloud`, a boolean value, when set to `true`, it disable the text-to-speech feature
+- `new`, A boolean value, when set to `true`, it triggers the creation and storage of a dummy release Bundle during the current workflow run.
 
 You can also create this new file using Github IO. Go to
 https://github.com/kiwix/kiwix-android-custom/new/master and type
