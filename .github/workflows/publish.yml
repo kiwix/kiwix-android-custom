@@ -53,27 +53,32 @@ jobs:
       - name: Copying custom app configuration into Kiwix Android code base
         run: ./copy_files_to_kiwix_android.sh
 
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Should upload dummy Bundle
+        run: |
+          cd ${TAG}
+          should_publish=$(jq -r '.new // empty' info.json)
+          if [ "$should_publish" == 'true' ]; then
+            echo "should_publish=true" >> $GITHUB_ENV
+          else
+            echo "should_publish=false" >> $GITHUB_ENV
+          fi
+
       - name: Preparing signing material
+        if: env.should_publish == 'true'
         env:
           keystore: ${{ secrets.keystore }}
         run: |
           echo "$keystore" | base64 -d > kiwix-android/kiwix-android.keystore
 
       - name: Set tag variable
+        if: env.should_publish == 'true'
         run: echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
 
-      - name: Should upload dummy Bundle
-        run: |
-          cd ${TAG}
-          new=$(grep -o '"new": true' info.json)
-          if [ -n "$new" ]; then
-            echo "The 'new' attribute is true, proceeding to publish dummy bundle..."
-          else
-            echo "The 'new' attribute is not true, skipping the next job."
-            exit 0  # Skip the job as Bundle is already published on play store
-          fi
-
       - name: Generate dummy Bundle
+        if: env.should_publish == 'true'
         env:
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
@@ -85,6 +90,7 @@ jobs:
 
 
       - name: Get Bundle name and path
+        if: env.should_publish == 'true'
         id: bundle-path
         run: |
           BUNDLE_PATH="kiwix-android/custom/build/outputs/bundle/${TAG}Release/*${TAG}*.aab"
@@ -93,6 +99,7 @@ jobs:
           echo "bundle_name=$BUNDLE_NAME" >> $GITHUB_ENV
 
       - name: Upload Bundle as an artifact
+        if: env.should_publish == 'true'
         uses: actions/upload-artifact@v2
         with:
           name: ${{ env.bundle_name }}
