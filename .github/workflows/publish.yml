@@ -54,7 +54,7 @@ jobs:
         run: ./copy_files_to_kiwix_android.sh
 
       - name: Install jq
-        run: sudo apt-get install -y jq
+        run: apt-get install -y jq
 
       - name: Should upload dummy Bundle
         run: |
