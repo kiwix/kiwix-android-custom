@@ -48,6 +48,8 @@ important fields are:
 - `disable_tabs`, a boolean value, when set to `true`, it deactivates the multi-tabs feature
 - `disable_read_aloud`, a boolean value, when set to `true`, it disable the text-to-speech feature
 - `disable_title`, a boolean value, when set to `true`, it disable the app title and set the app icon to hamburger
+- `disable_external_links`, a boolean value when set to `true`, it disables the external link popup
+  and hides the external links preference from the settings.
 - `new`, A boolean value, when set to `true`, it triggers the creation
   and storage of a dummy release Bundle during the current workflow
   run.
