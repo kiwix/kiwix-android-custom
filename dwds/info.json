@@ -4,5 +4,6 @@
   "enforced_lang": "de",
   "disable_read_aloud": true,
   "disable_title": true,
-  "disable_external_links": true
+  "disable_external_links": true,
+  "about_app_url": "https://www.dwds.de/d/ueber-uns"
 }
