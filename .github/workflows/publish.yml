@@ -54,7 +54,10 @@ jobs:
         run: ./copy_files_to_kiwix_android.sh
 
       - name: Install jq
-        run: apt-get install -y jq
+        run: sudo apt-get install -y jq
+
+      - name: Set tag variable
+        run: echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
 
       - name: Should upload dummy Bundle
         run: |
@@ -72,10 +75,6 @@ jobs:
           keystore: ${{ secrets.keystore }}
         run: |
           echo "$keystore" | base64 -d > kiwix-android/kiwix-android.keystore
-
-      - name: Set tag variable
-        if: env.should_publish == 'true'
-        run: echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
 
       - name: Generate dummy Bundle
         if: env.should_publish == 'true'
