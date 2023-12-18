@@ -1,5 +1,6 @@
 {
   "app_name": "Wikivoyage auf Deutsch",
   "zim_url": "https://download.kiwix.org/zim/wikivoyage/wikivoyage_de_all_novid_2018-10.zim",
-  "enforced_lang": "de"
+  "enforced_lang": "de",
+  "support_url": "https://www.kiwix.org/support"
 }

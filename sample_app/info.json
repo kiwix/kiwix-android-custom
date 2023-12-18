@@ -4,5 +4,6 @@
   "zim_url": "http://download.kiwix.org/zim/wikipedia_en_ray_charles.zim",
   "embed_zim": false,
   "ic_launcher": "icon.png",
-  "enforced_lang": "en"
+  "enforced_lang": "en",
+  "support_url": "https://www.kiwix.org/support"
 }

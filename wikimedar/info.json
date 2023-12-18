@@ -1,5 +1,6 @@
 {
   "app_name": "ويكيبيديا الطبية",
   "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikipedia_ar_medicine-app_maxi_2023-06.zim",
-  "enforced_lang": "ar"
+  "enforced_lang": "ar",
+  "support_url": "https://www.kiwix.org/support"
 }

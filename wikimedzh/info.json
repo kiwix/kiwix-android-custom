@@ -1,5 +1,6 @@
 {
   "app_name": "醫學維基百科(離線版)",
   "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikipedia_zh_medicine-app_maxi_2023-09.zim",
-  "enforced_lang": "zh"
+  "enforced_lang": "zh",
+  "support_url": "https://www.kiwix.org/support"
 }
