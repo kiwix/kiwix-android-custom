@@ -1,6 +1,6 @@
 {
   "app_name": "Enciclopedia de Venezuela",
-  "zim_url": "https://download.kiwix.org/zim/wikipedia/wikipedia_es_venezuela_maxi_2019-11.zim",
+  "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikipedia_es_venezuela-app_maxi_2023-12.zim",
   "enforced_lang": "es",
   "support_url": "https://www.kiwix.org/support"
 }
