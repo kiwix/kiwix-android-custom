@@ -50,7 +50,10 @@ important fields are:
 - `disable_title`, a boolean value, when set to `true`, it disable the app title and set the app icon to hamburger
 - `disable_external_links`, a boolean value when set to `true`, it disables the external link popup
   and hides the external links preference from the settings.
-- `about_the_app`, a URL, when it is set, it adds an `About the app` item to the sidebar. Clicking it opens the URL in an external web browser
+- `about_the_app`, a URL, when it is set, it adds an `About app_name app` item to the sidebar
+  `app_name` will be replaced with the actual app name. Clicking it opens the URL in an external web browser
+- `support_url`, a URL, when it is set, it adds an `Support app_name` item to the sidebar
+  `app_name` will be replaced with the actual app name. Clicking it opens the URL in an external web browser
 - `new`, A boolean value, when set to `true`, it triggers the creation
   and storage of a dummy release Bundle during the current workflow
   run.
