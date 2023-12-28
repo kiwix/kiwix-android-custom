@@ -2,5 +2,6 @@
   "app_name": "Encyclopédie de la Tunisie",
   "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikipedia_fr_tunisie-app_maxi_2023-12.zim",
   "enforced_lang": "fr",
-  "support_url": "https://www.kiwix.org/support"
+  "support_url": "https://www.kiwix.org/support",
+  "upload_bundle": true
 }
