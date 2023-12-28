@@ -6,5 +6,5 @@
   "ic_launcher": "icon.png",
   "enforced_lang": "en",
   "support_url": "https://www.kiwix.org/support",
-  "upload_bundle": false
+  "upload_bundle": true
 }
