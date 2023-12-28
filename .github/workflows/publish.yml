@@ -30,6 +30,19 @@ jobs:
       - name: Set tag variable
         run: echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
 
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Should upload Bundle
+        run: |
+          cd ${TAG}
+          should_publish_bundle=$(jq -r '.upload_bundle // empty' info.json)
+          if [ "$should_publish_bundle" == 'true' ]; then
+            echo "should_publish_bundle=true" >> $GITHUB_ENV
+          else
+            echo "should_publish_bundle=false" >> $GITHUB_ENV
+          fi
+
       - name: Publishing app to Google Play
         env:
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
@@ -38,7 +51,11 @@ jobs:
           DWDS_HTTP_BASIC_ACCESS_AUTHENTICATION: ${{ secrets.DWDS_HTTP_BASIC_ACCESS_AUTHENTICATION }}
         run: |
           cd kiwix-android
-          eval "./gradlew publish${TAG^}ReleaseBundleWithPlayAssetDelivery"
+          if [ "${{ env.should_publish_bundle }}" == 'true' ]; then
+            eval "./gradlew publish${TAG^}ReleaseBundleWithPlayAssetDelivery"
+          else
+            eval "./gradlew publish${TAG^}ReleaseApkWithExpansionFile"
+          fi
 
   publish_dummy_bundle:
     runs-on: ubuntu-22.04

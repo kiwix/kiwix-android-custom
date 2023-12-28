@@ -2,5 +2,6 @@
   "app_name": "ویکی‌پدیای پزشکی (آفلاین)",
   "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikipedia_fa_medicine-app_maxi_2023-12.zim",
   "enforced_lang": "fa",
-  "support_url": "https://www.kiwix.org/support"
+  "support_url": "https://www.kiwix.org/support",
+  "upload_bundle": false
 }

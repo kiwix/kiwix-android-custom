@@ -57,6 +57,8 @@ important fields are:
 - `new`, A boolean value, when set to `true`, it triggers the creation
   and storage of a dummy release Bundle during the current workflow
   run.
+- `upload_bundle` A boolean value. When set to true, it uploads the bundle to the Play Store,
+  Otherwise, it uploads the APK.
 
 You can also create this new file using Github IO. Go to
 https://github.com/kiwix/kiwix-android-custom/new/master and type
