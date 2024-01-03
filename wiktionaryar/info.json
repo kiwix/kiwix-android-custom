@@ -1,0 +1,8 @@
+{
+  "app_name": "ويكاموس بدون إنترنت",
+  "zim_url": "https://download.kiwix.org/zim/wiktionary/wiktionary_ar_all_maxi_2023-12.zim",
+  "enforced_lang": "en",
+  "support_url": "https://www.kiwix.org/support",
+  "upload_bundle": true,
+  "new": false
+}
