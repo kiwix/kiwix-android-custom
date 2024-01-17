@@ -3,6 +3,5 @@
   "zim_url": "https://drive.farm.openzim.org/custom%20apps/CAN%20App%20-%20English/All%20Articles%20/CANAllArticlesEN-1ed6e94c6348_2024-01.zim",
   "enforced_lang": "en",
   "support_url": "https://www.kiwix.org/support",
-  "upload_bundle": false,
-  "new": true
+  "upload_bundle": true
 }
