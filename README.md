@@ -17,7 +17,7 @@ This project contains data and scripts needed to create specific
  done separately by running the relevant Gradle command to build one
  or more custom apps.
 
-[![Publish Custom App](https://github.com/kiwix/kiwix-android-custom/actions/workflows/publish.yml/badge.svg)](https://github.com/kiwix/kiwix-android-custom/actions/workflows/publish.yml)
+[![CD](https://github.com/kiwix/kiwix-android-custom/workflows/CD/badge.svg?query=event%3Arelease)](https://github.com/kiwix/kiwix-android-custom/actions/workflows/cd.yml?query=event%3Arelease)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## Disclaimer
