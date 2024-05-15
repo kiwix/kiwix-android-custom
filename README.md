@@ -32,7 +32,7 @@ the custom apps, please read [CONTRIBUTING.md](CONTRIBUTING.md).
 each custom configuration is isolated in a so called custom app
 folder. If you need to create a new one for a new custom app, you can
 do that easily using Github UI. Go to
-https://github.com/kiwix/kiwix-android-custom/new/master, put the name
+https://github.com/kiwix/kiwix-android-custom/new/main, put the name
 of your app (no space, lowercase only) and add a slash at the end.
 
 ## Description json file
@@ -61,14 +61,14 @@ important fields are:
   Otherwise, it uploads the APK.
 
 You can also create this new file using Github IO. Go to
-https://github.com/kiwix/kiwix-android-custom/new/master and type
+https://github.com/kiwix/kiwix-android-custom/new/main and type
 `info.json`.
 
 Remark: If you make a simple update, just replace the `zim_url` with
 the latest available zim from
 [download.kiwix.org/zim](https://download.kiwix.org/zim). Then comment
 your commit (e.g. "updated to YYYY-MM zim") and commit directly to
-`master` branch. You won't have to change anything more than this
+`main` branch. You won't have to change anything more than this
 (just tagging the release, see below).
 
 ## Icon master
@@ -152,7 +152,7 @@ then Go to the [release
 
 This triggers a [Github
  action](https://github.com/kiwix/kiwix-android-custom/actions) that
- will build an app Bundle using kiwix-android master branch and the
+ will build an app Bundle using kiwix-android main branch and the
  illustrations/icons set/json defined in this repository.
 
 The very first release has to be done manually. Put the `new`
