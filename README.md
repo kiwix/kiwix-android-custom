@@ -168,6 +168,41 @@ All other further releases (without the `new` attribute in the
  version". After a couple of hours the new version of the app should
  be listed in the public Play Store.
 
+## Releasing in your organisation
+
+If you want to publish the application in your organization(Play store account),
+kiwix requires a service account JSON file to automatically publish your app on play store.
+
+### How to create Service Account
+
+1. You need a GCP(Google Cloud Platform) account for this.
+2. Create a project for your application in the GCP.
+3. Enable the [AndroidPublisher](https://console.cloud.google.com/apis/library/androidpublisher.googleapis.com) API for that GCP project.
+4. Create a [service account and key](https://console.cloud.google.com/apis/credentials/serviceaccountkey)
+    1. Make sure you're in the GCP project you used above (check the `project` query param in the
+       URL)
+    2. Select `New service account`
+    3. Give it a name and the Project Owner role.
+    4. After creating the service account, find it in the list of all service accounts and use the 3
+       dots menu to `Manage keys`
+    5. From there, create a new key using the `Add key` menu (leave JSON selected).
+5. Give your service account
+   [permissions to publish apps](https://play.google.com/console/developers/users-and-permissions)
+   on your behalf.
+    1. Click `Invite new user`
+    2. Copy/paste the service account email (you can find it in the JSON credentials)
+    3. Don't touch the roles
+    4. Give the `Release apps to testing tracks` permission
+       <img alt="Minimum Service Account permissions" src="assets/min-perms.png" width="66%" />
+
+6. We required that JSON file which was downloaded from the GCP for publishing your application.
+
+### Initial Play Store upload
+
+The first app bundle needs to be uploaded via the Google Play Console because registering the
+app with the Play Store cannot be done using the Play Developer API.
+After the initial upload, the application will be automatically uploaded by our CD process.
+
 License
 -------
 
