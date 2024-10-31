@@ -34,17 +34,18 @@ jobs:
 
       - name: Set non-kiwix organization tag
         run: |
-          non_kiwix_organization_tag="PLAYSTORE_JSON_${TAG}"
+          non_kiwix_organization_tag="PLAYSTORE_JSON_${TAG^^}"
           echo "NON_KIWIX_ORGANIZATION_TAG=${non_kiwix_organization_tag}" >> $GITHUB_ENV
 
       - name: Preparing signing material
         env:
           keystore: ${{ secrets.keystore }}
           playstore_json: ${{ secrets.PLAYSTORE_JSON }}
+          non_kiwix_organization_json: ${{ secrets[env.NON_KIWIX_ORGANIZATION_TAG] }}
         run: |
           echo "$keystore" | base64 -d > kiwix-android/kiwix-android.keystore
-          if [ -n "${{ secrets[env.non_kiwix_organization_tag] }}" ]; then
-            echo "${{ secrets[env.non_kiwix_organization_tag] }}" > kiwix-android/playstore.json
+          if [ -n "$non_kiwix_organization_json" ]; then
+            echo "$non_kiwix_organization_json" > kiwix-android/playstore.json
           else
             echo "$playstore_json" > kiwix-android/playstore.json
           fi
