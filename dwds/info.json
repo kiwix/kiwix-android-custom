@@ -1,6 +1,6 @@
 {
   "app_name": "DWDS",
-  "zim_url": "https://{{DWDS_HTTP_BASIC_ACCESS_AUTHENTICATION}}@www.dwds.de/kiwix/f/dwds_de_dictionary_nopic_2024-09-23.zim",
+  "zim_url": "https://{{DWDS_HTTP_BASIC_ACCESS_AUTHENTICATION}}@www.dwds.de/kiwix/f/dwds_de_dictionary_nopic_2024-11-05.zim",
   "enforced_lang": "de",
   "disable_read_aloud": true,
   "disable_title": true,
