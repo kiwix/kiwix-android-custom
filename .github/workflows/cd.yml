@@ -3,8 +3,9 @@ name: CD
 on:
   release:
     types: [published]
+  push:
     branches:
-      - main
+      - '**'
 
 jobs:
   publish:
@@ -21,13 +22,13 @@ jobs:
           distribution: temurin
 
       - name: Retrieving Kiwix Android source code
-        run: git clone --depth=1 --single-branch --branch main https://github.com/kiwix/kiwix-android.git
+        run: git clone --depth=1 --single-branch --branch minor_improvement_in_uploading_aab_for_custom_aaps https://github.com/kiwix/kiwix-android.git
 
       - name: Copying custom app configuration into Kiwix Android code base
         run: ./copy_files_to_kiwix_android.sh
 
       - name: Set tag variable
-        run: echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
+        run: echo "TAG=dwds" >> $GITHUB_ENV
 
       - name: Install jq
         run: sudo apt-get install -y jq
@@ -89,7 +90,7 @@ jobs:
           distribution: temurin
 
       - name: Retrieving Kiwix Android source code
-        run: git clone --depth=1 --single-branch --branch main https://github.com/kiwix/kiwix-android.git
+        run: git clone --depth=1 --single-branch --branch minor_improvement_in_uploading_aab_for_custom_aaps https://github.com/kiwix/kiwix-android.git
 
       - name: Copying custom app configuration into Kiwix Android code base
         run: ./copy_files_to_kiwix_android.sh
@@ -98,7 +99,7 @@ jobs:
         run: sudo apt-get install -y jq
 
       - name: Set tag variable
-        run: echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
+        run: echo "TAG=dwds" >> $GITHUB_ENV
 
       - name: Should upload dummy Bundle
         run: |
