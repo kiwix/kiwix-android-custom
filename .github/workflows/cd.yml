@@ -57,6 +57,7 @@ jobs:
           if [ "$should_publish_bundle" == 'true' ]; then
             echo "should_publish_bundle=true" >> $GITHUB_ENV
           else
+            echo "APK_BUILD=true" >> $GITHUB_ENV
             echo "should_publish_bundle=false" >> $GITHUB_ENV
           fi
 
