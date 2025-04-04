@@ -99,7 +99,7 @@ jobs:
         run: sudo apt-get install -y jq
 
       - name: Set tag variable
-        run: echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
+        run: echo "TAG=phet" >> $GITHUB_ENV
 
       - name: Should upload dummy Bundle
         run: |
