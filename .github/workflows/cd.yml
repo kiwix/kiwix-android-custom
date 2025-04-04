@@ -99,7 +99,7 @@ jobs:
         run: sudo apt-get install -y jq
 
       - name: Set tag variable
-        run: echo "TAG=phet" >> $GITHUB_ENV
+        run: echo "TAG=dwds" >> $GITHUB_ENV
 
       - name: Should upload dummy Bundle
         run: |
