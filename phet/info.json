@@ -6,5 +6,6 @@
   "disable_tabs": true,
   "disable_read_aloud": true,
   "support_url": "https://www.kiwix.org/support",
-  "upload_bundle": true
+  "upload_bundle": true,
+  "new": true
 }
