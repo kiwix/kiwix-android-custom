@@ -7,73 +7,73 @@ on:
       - main
 
 jobs:
-  publish:
-    runs-on: ubuntu-22.04
-
-    steps:
-      - name: Retrieving custom app configuration
-        uses: actions/checkout@v4
-
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: 17
-          distribution: temurin
-
-      - name: Retrieving Kiwix Android source code
-        run: git clone --depth=1 --single-branch --branch main https://github.com/kiwix/kiwix-android.git
-
-      - name: Copying custom app configuration into Kiwix Android code base
-        run: ./copy_files_to_kiwix_android.sh
-
-      - name: Set tag variable
-        run: echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
-
-      - name: Install jq
-        run: sudo apt-get install -y jq
-
-      - name: Set non-kiwix organization tag
-        run: |
-          non_kiwix_organization_tag="PLAYSTORE_JSON_${TAG^^}"
-          echo "NON_KIWIX_ORGANIZATION_TAG=${non_kiwix_organization_tag}" >> $GITHUB_ENV
-
-      - name: Preparing signing material
-        env:
-          keystore: ${{ secrets.keystore }}
-          playstore_json: ${{ secrets.PLAYSTORE_JSON }}
-          non_kiwix_organization_json: ${{ secrets[env.NON_KIWIX_ORGANIZATION_TAG] }}
-        run: |
-          echo "$keystore" | base64 -d > kiwix-android/kiwix-android.keystore
-          if [ -n "$non_kiwix_organization_json" ]; then
-            echo "$non_kiwix_organization_json" > kiwix-android/playstore.json
-          else
-            echo "$playstore_json" > kiwix-android/playstore.json
-          fi
-
-      - name: Should upload Bundle
-        run: |
-          cd ${TAG}
-          should_publish_bundle=$(jq -r '.upload_bundle // empty' info.json)
-          if [ "$should_publish_bundle" == 'true' ]; then
-            echo "should_publish_bundle=true" >> $GITHUB_ENV
-          else
-            echo "APK_BUILD=true" >> $GITHUB_ENV
-            echo "should_publish_bundle=false" >> $GITHUB_ENV
-          fi
-
-      - name: Publishing app to Google Play
-        env:
-          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-          KEY_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
-          DWDS_HTTP_BASIC_ACCESS_AUTHENTICATION: ${{ secrets.DWDS_HTTP_BASIC_ACCESS_AUTHENTICATION }}
-        run: |
-          cd kiwix-android
-          if [ "${{ env.should_publish_bundle }}" == 'true' ]; then
-            eval "./gradlew publish${TAG^}ReleaseBundleWithPlayAssetDelivery"
-          else
-            eval "./gradlew publish${TAG^}ReleaseApkWithExpansionFile"
-          fi
+#  publish:
+#    runs-on: ubuntu-22.04
+#
+#    steps:
+#      - name: Retrieving custom app configuration
+#        uses: actions/checkout@v4
+#
+#      - name: Set up JDK 17
+#        uses: actions/setup-java@v4
+#        with:
+#          java-version: 17
+#          distribution: temurin
+#
+#      - name: Retrieving Kiwix Android source code
+#        run: git clone --depth=1 --single-branch --branch main https://github.com/kiwix/kiwix-android.git
+#
+#      - name: Copying custom app configuration into Kiwix Android code base
+#        run: ./copy_files_to_kiwix_android.sh
+#
+#      - name: Set tag variable
+#        run: echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
+#
+#      - name: Install jq
+#        run: sudo apt-get install -y jq
+#
+#      - name: Set non-kiwix organization tag
+#        run: |
+#          non_kiwix_organization_tag="PLAYSTORE_JSON_${TAG^^}"
+#          echo "NON_KIWIX_ORGANIZATION_TAG=${non_kiwix_organization_tag}" >> $GITHUB_ENV
+#
+#      - name: Preparing signing material
+#        env:
+#          keystore: ${{ secrets.keystore }}
+#          playstore_json: ${{ secrets.PLAYSTORE_JSON }}
+#          non_kiwix_organization_json: ${{ secrets[env.NON_KIWIX_ORGANIZATION_TAG] }}
+#        run: |
+#          echo "$keystore" | base64 -d > kiwix-android/kiwix-android.keystore
+#          if [ -n "$non_kiwix_organization_json" ]; then
+#            echo "$non_kiwix_organization_json" > kiwix-android/playstore.json
+#          else
+#            echo "$playstore_json" > kiwix-android/playstore.json
+#          fi
+#
+#      - name: Should upload Bundle
+#        run: |
+#          cd ${TAG}
+#          should_publish_bundle=$(jq -r '.upload_bundle // empty' info.json)
+#          if [ "$should_publish_bundle" == 'true' ]; then
+#            echo "should_publish_bundle=true" >> $GITHUB_ENV
+#          else
+#            echo "APK_BUILD=true" >> $GITHUB_ENV
+#            echo "should_publish_bundle=false" >> $GITHUB_ENV
+#          fi
+#
+#      - name: Publishing app to Google Play
+#        env:
+#          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+#          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+#          KEY_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
+#          DWDS_HTTP_BASIC_ACCESS_AUTHENTICATION: ${{ secrets.DWDS_HTTP_BASIC_ACCESS_AUTHENTICATION }}
+#        run: |
+#          cd kiwix-android
+#          if [ "${{ env.should_publish_bundle }}" == 'true' ]; then
+#            eval "./gradlew publish${TAG^}ReleaseBundleWithPlayAssetDelivery"
+#          else
+#            eval "./gradlew publish${TAG^}ReleaseApkWithExpansionFile"
+#          fi
 
   publish_dummy_bundle:
     runs-on: ubuntu-22.04
