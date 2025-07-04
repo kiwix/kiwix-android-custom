@@ -5,9 +5,7 @@ Android](https://github.com/kiwix/kiwix-android) against a
 pre-configured ZIM file.
 
 Kiwix publishes more than [a dozen of such
-apps](https://play.google.com/store/apps/collection/cluster?clp=igM6ChkKEzkxMTYyMTU3Njc1NDE4NTc0OTIQCBgDEhsKFW9yZy5raXdpeC5raXdpeG1vYmlsZRABGAMYAQ%3D%3D:S:ANO1ljKl_Lw&gsr=Cj2KAzoKGQoTOTExNjIxNTc2NzU0MTg1NzQ5MhAIGAMSGwoVb3JnLmtpd2l4Lmtpd2l4bW9iaWxlEAEYAxgB:S:ANO1ljLrUVU). [Wikimed
-- Offline Medical
-Wikipedia](https://play.google.com/store/apps/details?id=org.kiwix.kiwixcustomwikimed)
+apps](https://play.google.com/store/apps/collection/cluster?clp=igM6ChkKEzkxMTYyMTU3Njc1NDE4NTc0OTIQCBgDEhsKFW9yZy5raXdpeC5raXdpeG1vYmlsZRABGAMYAQ%3D%3D:S:ANO1ljKl_Lw&gsr=Cj2KAzoKGQoTOTExNjIxNTc2NzU0MTg1NzQ5MhAIGAMSGwoVb3JnLmtpd2l4Lmtpd2l4bW9iaWxlEAEYAxgB:S:ANO1ljLrUVU), [Wikimed Offline Medical Wikipedia](https://play.google.com/store/apps/details?id=org.kiwix.kiwixcustomwikimed)
 and [Wikivoyage - Offline Travel
 Guide](https://play.google.com/store/apps/details?id=org.kiwix.kiwixcustomwikivoyage)
 being the most famous ones.
