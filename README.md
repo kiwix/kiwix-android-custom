@@ -57,6 +57,9 @@ important fields are:
   run.
 - `upload_bundle` A boolean value. When set to true, it uploads the bundle to the Play Store,
   Otherwise, it uploads the APK.
+- `kiwix-android_revision` A specific Git commit SHA (revision ID) of the `kiwix-android` repository to use when building the app.
+   - If this field is set to an `empty` string or `latest`, the latest commit from the `main` branch will be used.
+   - If this field contains a valid commit SHA, that specific version of the `kiwix-android` code base will be used for the build.
 
 You can also create this new file using Github IO. Go to
 https://github.com/kiwix/kiwix-android-custom/new/main and type

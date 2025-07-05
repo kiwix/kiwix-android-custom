@@ -4,5 +4,6 @@
   "enforced_lang": "en",
   "support_url": "https://www.kiwix.org/support",
   "upload_bundle": true,
-  "new": false
+  "new": false,
+  "kiwix-android_revision": "latest"
 }
