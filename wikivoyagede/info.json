@@ -3,5 +3,6 @@
   "zim_url": "https://mirror.download.kiwix.org/zim/wikivoyage/wikivoyage_de_all_maxi_2024-06.zim",
   "enforced_lang": "de",
   "support_url": "https://www.kiwix.org/support",
-  "upload_bundle": true
+  "upload_bundle": true,
+  "kiwix-android_revision": "latest"
 }

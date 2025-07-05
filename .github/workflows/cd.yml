@@ -20,17 +20,37 @@ jobs:
           java-version: 17
           distribution: temurin
 
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Read revision ID from info.json
+        run: |
+          cd ${TAG}
+          rev_id=$(jq -r '."kiwix-android_revision" // empty' info.json)
+          if [ -z "$rev_id" ]; then
+            echo "REV_ID=" >> $GITHUB_ENV
+          else
+            echo "REV_ID=$rev_id" >> $GITHUB_ENV
+          fi
+
       - name: Retrieving Kiwix Android source code
-        run: git clone --depth=1 --single-branch --branch main https://github.com/kiwix/kiwix-android.git
+        run: |
+          if [ -z "${{ env.REV_ID }}" ]; then
+            echo "Cloning latest commit from main branch"
+            git clone --depth=1 --single-branch --branch main https://github.com/kiwix/kiwix-android.git
+          else
+            echo "Cloning specific commit: ${{ env.REV_ID }}"
+            git clone https://github.com/kiwix/kiwix-android.git
+            cd kiwix-android
+            git checkout ${{ env.REV_ID }}
+            cd ..
+          fi
 
       - name: Copying custom app configuration into Kiwix Android code base
         run: ./copy_files_to_kiwix_android.sh
 
       - name: Set tag variable
         run: echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
-
-      - name: Install jq
-        run: sudo apt-get install -y jq
 
       - name: Set non-kiwix organization tag
         run: |
@@ -88,14 +108,34 @@ jobs:
           java-version: 17
           distribution: temurin
 
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Read revision ID from info.json
+        run: |
+          cd ${TAG}
+          rev_id=$(jq -r '."kiwix-android_revision" // empty' info.json)
+          if [ -z "$rev_id" ]; then
+            echo "REV_ID=" >> $GITHUB_ENV
+          else
+            echo "REV_ID=$rev_id" >> $GITHUB_ENV
+          fi
+
       - name: Retrieving Kiwix Android source code
-        run: git clone --depth=1 --single-branch --branch main https://github.com/kiwix/kiwix-android.git
+        run: |
+          if [ -z "${{ env.REV_ID }}" ]; then
+            echo "Cloning latest commit from main branch"
+            git clone --depth=1 --single-branch --branch main https://github.com/kiwix/kiwix-android.git
+          else
+            echo "Cloning specific commit: ${{ env.REV_ID }}"
+            git clone https://github.com/kiwix/kiwix-android.git
+            cd kiwix-android
+            git checkout ${{ env.REV_ID }}
+            cd ..
+          fi
 
       - name: Copying custom app configuration into Kiwix Android code base
         run: ./copy_files_to_kiwix_android.sh
-
-      - name: Install jq
-        run: sudo apt-get install -y jq
 
       - name: Set tag variable
         run: echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV

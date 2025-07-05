@@ -3,5 +3,6 @@
   "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikispecies_en_all-app_maxi_2023-12.zim",
   "enforced_lang": "en",
   "support_url": "https://www.kiwix.org/support",
-  "upload_bundle": false
+  "upload_bundle": false,
+  "kiwix-android_revision": "latest"
 }

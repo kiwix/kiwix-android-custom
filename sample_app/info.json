@@ -6,5 +6,6 @@
   "ic_launcher": "icon.png",
   "enforced_lang": "en",
   "support_url": "https://www.kiwix.org/support",
-  "upload_bundle": true
+  "upload_bundle": true,
+  "kiwix-android_revision": "latest"
 }

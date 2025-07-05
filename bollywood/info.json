@@ -3,5 +3,6 @@
   "zim_url": "https://mirror.download.kiwix.org/zim/wikipedia/wikipedia_en_indian_cinema_nopic_2023-12.zim",
   "enforced_lang": "en",
   "support_url": "https://www.kiwix.org/support",
-  "upload_bundle": true
+  "upload_bundle": true,
+  "kiwix-android_revision": "latest"
 }

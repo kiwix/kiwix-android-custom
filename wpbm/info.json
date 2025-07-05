@@ -40,5 +40,6 @@
   "zim_url": "https://download.kiwix.org/zim/wikipedia/wikipedia_bm_all_maxi_2019-10.zim",
   "enforced_lang": "bm",
   "support_url": "https://www.kiwix.org/support",
-  "upload_bundle": true
+  "upload_bundle": true,
+  "kiwix-android_revision": "latest"
 }

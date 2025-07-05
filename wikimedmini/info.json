@@ -3,5 +3,6 @@
   "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/mdwiki_en_all-app_mini_2023-12.zim",
   "enforced_lang": "en",
   "support_url": "https://www.kiwix.org/support",
-  "upload_bundle": true
+  "upload_bundle": true,
+  "kiwix-android_revision": "latest"
 }
