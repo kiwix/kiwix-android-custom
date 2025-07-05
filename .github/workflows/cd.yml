@@ -20,6 +20,9 @@ jobs:
           java-version: 17
           distribution: temurin
 
+      - name: Set tag variable
+        run: echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
+
       - name: Install jq
         run: sudo apt-get install -y jq
 
@@ -48,9 +51,6 @@ jobs:
 
       - name: Copying custom app configuration into Kiwix Android code base
         run: ./copy_files_to_kiwix_android.sh
-
-      - name: Set tag variable
-        run: echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
 
       - name: Set non-kiwix organization tag
         run: |
@@ -108,6 +108,9 @@ jobs:
           java-version: 17
           distribution: temurin
 
+      - name: Set tag variable
+        run: echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
+
       - name: Install jq
         run: sudo apt-get install -y jq
 
@@ -136,9 +139,6 @@ jobs:
 
       - name: Copying custom app configuration into Kiwix Android code base
         run: ./copy_files_to_kiwix_android.sh
-
-      - name: Set tag variable
-        run: echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
 
       - name: Should upload dummy Bundle
         run: |
