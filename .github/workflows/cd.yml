@@ -20,10 +20,13 @@ jobs:
           java-version: 17
           distribution: temurin
 
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
       - name: Read revision ID from info.json
         run: |
           cd ${TAG}
-          rev_id=$(jq -r '.kiwix-android_revision // empty' info.json)
+          rev_id=$(jq -r '."kiwix-android_revision" // empty' info.json)
           if [ -z "$rev_id" ]; then
             echo "REV_ID=" >> $GITHUB_ENV
           else
@@ -48,9 +51,6 @@ jobs:
 
       - name: Set tag variable
         run: echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
-
-      - name: Install jq
-        run: sudo apt-get install -y jq
 
       - name: Set non-kiwix organization tag
         run: |
@@ -108,10 +108,13 @@ jobs:
           java-version: 17
           distribution: temurin
 
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
       - name: Read revision ID from info.json
         run: |
           cd ${TAG}
-          rev_id=$(jq -r '.kiwix-android_revision // empty' info.json)
+          rev_id=$(jq -r '."kiwix-android_revision" // empty' info.json)
           if [ -z "$rev_id" ]; then
             echo "REV_ID=" >> $GITHUB_ENV
           else
@@ -133,9 +136,6 @@ jobs:
 
       - name: Copying custom app configuration into Kiwix Android code base
         run: ./copy_files_to_kiwix_android.sh
-
-      - name: Install jq
-        run: sudo apt-get install -y jq
 
       - name: Set tag variable
         run: echo "TAG=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
