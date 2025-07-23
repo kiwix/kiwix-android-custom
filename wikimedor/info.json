@@ -1,8 +1,9 @@
 {
   "app_name": "ମେଡିକାଲ ଉଇକିପିଡିଆ (ଅଫଲାଇନ)",
-  "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikipedia_or_medicine-app_maxi_2023-12.zim",
+  "zim_recipe": "https://farm.openzim.org/recipes/wikipedia_or_medicine_app",
+  "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikipedia_or_medicine-app_maxi_2025-07.zim",
   "enforced_lang": "or",
   "support_url": "https://www.kiwix.org/support",
   "upload_bundle": true,
-  "kiwix-android_revision": "latest"
+  "kiwix-android_revision": "ccffb07ae47b3753be501d55cfb8c7c8977cc973"
 }
