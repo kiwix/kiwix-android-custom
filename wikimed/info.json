@@ -1,6 +1,7 @@
 {
   "app_name": "Medical Wikipedia",
-  "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/mdwiki_en_all-app_maxi_2024-05.zim",
+  "zim_recipe": "https://farm.openzim.org/recipes/mdwiki_app",
+  "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/mdwiki_en_all-app_maxi_2025-08.zim",
   "enforced_lang": "en",
   "support_url": "https://www.kiwix.org/support",
   "upload_bundle": false,
