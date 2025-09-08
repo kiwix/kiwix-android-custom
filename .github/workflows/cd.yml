@@ -30,7 +30,7 @@ jobs:
         run: |
           cd ${TAG}
           rev_id=$(jq -r '."kiwix-android_revision" // empty' info.json)
-          if [ -z "$rev_id" ]; then
+          if [ -z "$rev_id" ] || [ "$rev_id" = "latest" ]; then
             echo "REV_ID=" >> $GITHUB_ENV
           else
             echo "REV_ID=$rev_id" >> $GITHUB_ENV
@@ -118,7 +118,7 @@ jobs:
         run: |
           cd ${TAG}
           rev_id=$(jq -r '."kiwix-android_revision" // empty' info.json)
-          if [ -z "$rev_id" ]; then
+          if [ -z "$rev_id" ] || [ "$rev_id" = "latest" ]; then
             echo "REV_ID=" >> $GITHUB_ENV
           else
             echo "REV_ID=$rev_id" >> $GITHUB_ENV
