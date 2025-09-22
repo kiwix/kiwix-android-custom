@@ -42,7 +42,7 @@ important fields are:
 - `app_name`, the title of the app
 - `zim_url`, the ZIM online URL (to download to create the app)
 - `enforced_lang`, the language code of the content (and the app UI)
-- `disable_sidebar`, a boolean value, when set to `true`, it hides the sidebar
+- `disable_sidebar`, a boolean value, when set to `true`, it hides the right (table of contents) sidebar
 - `disable_tabs`, a boolean value, when set to `true`, it deactivates the multi-tabs feature
 - `disable_read_aloud`, a boolean value, when set to `true`, it disable the text-to-speech feature
 - `disable_title`, a boolean value, when set to `true`, it disable the app title and set the app icon to hamburger
