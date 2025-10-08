@@ -7,5 +7,6 @@
   "disable_external_links": true,
   "about_app_url": "https://www.dwds.de/a/",
   "upload_bundle": true,
+  "disable_help_menu": true,
   "kiwix-android_revision": "latest"
 }
