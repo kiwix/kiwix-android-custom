@@ -1,0 +1,9 @@
+{
+  "app_name": "Wiktionary",
+  "zim_url": "https://download.kiwix.org/zim/wiktionary/wiktionary_en_all_nopic_2024-05.zim",
+  "enforced_lang": "en",
+  "support_url": "https://www.kiwix.org/support",
+  "upload_bundle": true,
+  "new": false,
+  "kiwix-android_revision": "latest"
+}
