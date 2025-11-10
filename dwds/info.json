@@ -8,5 +8,6 @@
   "about_app_url": "https://www.dwds.de/a/",
   "upload_bundle": true,
   "disable_help_menu": true,
+  "show_search_suggestions_spellchecked": true,
   "kiwix-android_revision": "latest"
 }

@@ -58,6 +58,7 @@ important fields are:
   run.
 - `upload_bundle` A boolean value. When set to true, it uploads the bundle to the Play Store,
   Otherwise, it uploads the APK.
+- `show_search_suggestions_spellchecked` A boolean value. When set to `true`, it shows alternative suggestions when the user enters a misspelled search term.
 - `kiwix-android_revision` A specific Git commit SHA (revision ID) of the `kiwix-android` repository to use when building the app.
    - If this field is set to an `empty` string or `latest`, the latest commit from the `main` branch will be used.
    - If this field contains a valid commit SHA, that specific version of the `kiwix-android` code base will be used for the build.
