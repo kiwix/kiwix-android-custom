@@ -74,6 +74,31 @@ your commit (e.g. "updated to YYYY-MM zim") and commit directly to
 `main` branch. You won't have to change anything more than this
 (just tagging the release, see below).
 
+## ZIM delivery modes (Asset Delivery vs OBB)
+
+Custom apps currently use **two different mechanisms** to deliver ZIM files,
+depending on the size of the content and Google Play constraints.
+
+### Asset Delivery mode
+
+By default, custom apps use **Play Asset Delivery** to package and deliver
+the ZIM file together with the application. In this mode, the ZIM file is bundled as an application
+asset and is installed directly with the app. This approach is preferred for most custom apps.
+However, **Play Asset Delivery has a size limitation (approximately 1.5 GB)**,
+which makes it unsuitable for very large ZIM files.
+
+### OBB file delivery
+
+For custom apps whose ZIM files exceed the size limits of Asset Delivery,
+the ZIM content is packaged and delivered using an **OBB (Opaque Binary Blob) file**. 
+In this mode, the OBB file is uploaded to the Play Store alongside the APK
+and is automatically placed by the Play Store under the app’s
+`Android/obb/<package-name>` directory during installation.
+
+Currently, the following custom apps use the OBB-based delivery approach:
+- **Medical Wikipedia**
+- **WikiSpecies**
+
 ## Icon master
 
 The Icon master is file `icon.png` you find (or have to create) in the
