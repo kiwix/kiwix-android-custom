@@ -1,7 +1,7 @@
 {
   "app_name": "Wikipédia médicale",
   "zim_recipe": "https://farm.openzim.org/recipes/wikipedia_fr_medicine_app",
-  "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikipedia_fr_medicine-app_maxi_2025-07.zim",
+  "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikipedia_fr_medicine-app_maxi_2025-11.zim",
   "enforced_lang": "fr",
   "support_url": "https://www.kiwix.org/support",
   "upload_bundle": true,
