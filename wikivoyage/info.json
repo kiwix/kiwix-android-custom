@@ -1,6 +1,6 @@
 {
   "app_name": "Wikivoyage",
-  "zim_recipe": "https://farm.openzim.org/recipes/wikivoyage_en_all_app"
+  "zim_recipe": "https://farm.openzim.org/recipes/wikivoyage_en_all_app",
   "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikivoyage_en_all-app_maxi_2025-12.zim",
   "enforced_lang": "en",
   "support_url": "https://www.kiwix.org/support",
