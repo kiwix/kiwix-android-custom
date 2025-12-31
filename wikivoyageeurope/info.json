@@ -1,6 +1,7 @@
 {
   "app_name": "Wikivoyage European Travels",
-  "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikivoyage_en_europe-app_maxi_2024-06.zim",
+  "zim_recipe": "https://farm.openzim.org/recipes/wikivoyage_en_europe_app",
+  "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikivoyage_en_europe-app_maxi_2025-12.zim",
   "enforced_lang": "en",
   "support_url": "https://www.kiwix.org/support",
   "upload_bundle": true,
