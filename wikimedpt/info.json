@@ -1,6 +1,7 @@
 {
   "app_name": "Wikipédia Médica (Offline)",
-  "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikipedia_pt_medicine-app_maxi_2023-12.zim",
+  "zim_recipe": "https://farm.openzim.org/recipes/wikipedia_pt_medicine_app",
+  "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikipedia_pt_medicine-app_maxi_2025-12.zim",
   "enforced_lang": "pt",
   "support_url": "https://www.kiwix.org/support",
   "upload_bundle": true,
