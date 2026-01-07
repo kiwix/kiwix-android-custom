@@ -70,6 +70,17 @@ jobs:
             echo "$playstore_json" > kiwix-android/playstore.json
           fi
 
+      - name: Check app is not deprecated
+        run: |
+          cd ${TAG}
+          is_deprecated=$(jq -r '.deprecated // empty' info.json)
+          if [ "$is_deprecated" = "true" ]; then
+            echo "Error: This app is marked as deprecated in info.json. Publishing is not allowed."
+            exit 1
+          else
+            echo "App is not deprecated. Continuing…"
+          fi
+
       - name: Should upload Bundle
         run: |
           cd ${TAG}
@@ -139,6 +150,17 @@ jobs:
 
       - name: Copying custom app configuration into Kiwix Android code base
         run: ./copy_files_to_kiwix_android.sh
+
+      - name: Check app is not deprecated
+        run: |
+          cd ${TAG}
+          is_deprecated=$(jq -r '.deprecated // empty' info.json)
+          if [ "$is_deprecated" = "true" ]; then
+            echo "Error: This app is marked as deprecated in info.json. Publishing is not allowed."
+            exit 1
+          else
+            echo "App is not deprecated. Continuing…"
+          fi
 
       - name: Should upload dummy Bundle
         run: |
