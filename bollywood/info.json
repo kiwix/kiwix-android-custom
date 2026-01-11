@@ -1,6 +1,7 @@
 {
   "app_name": "Bollywood Offline",
-  "zim_url": "https://mirror.download.kiwix.org/zim/wikipedia/wikipedia_en_indian_cinema_nopic_2023-12.zim",
+  "recipe_url": "https://farm.openzim.org/recipes/wikipedia_en_bollywood_app",
+  "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikipedia_en_indian-cinema_maxi_2025-12.zim",
   "enforced_lang": "en",
   "support_url": "https://www.kiwix.org/support",
   "upload_bundle": true,
