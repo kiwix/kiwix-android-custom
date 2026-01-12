@@ -1,6 +1,7 @@
 {
   "app_name": "Offline WikiMed mini",
-  "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/mdwiki_en_all-app_mini_2023-12.zim",
+  "recipe_url": "https://farm.openzim.org/recipes/mdwiki_app",
+  "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/mdwiki_en_all-app_mini_2025-11.zim",
   "enforced_lang": "en",
   "support_url": "https://www.kiwix.org/support",
   "upload_bundle": true,
