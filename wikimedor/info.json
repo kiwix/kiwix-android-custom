@@ -5,5 +5,5 @@
   "enforced_lang": "or",
   "support_url": "https://www.kiwix.org/support",
   "upload_bundle": true,
-  "kiwix-android_revision": "ccffb07ae47b3753be501d55cfb8c7c8977cc973"
+  "kiwix-android_revision": "latest"
 }
