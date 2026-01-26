@@ -106,7 +106,7 @@ The Icon master is file `icon.png` you find (or have to create) in the
 custom app folder. It is a square PNG file which is used as master to
 create the Icon set (see section below). This master has to match many
 constraints and you might even have to create an `icon_foreground.png`
-and `icon_baground.png` to achieve to do certain things. Look at the
+and `icon_background.png` to achieve to do certain things. Look at the
 [Android documentation about adaptive
 icons](https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive)
 to know more.
