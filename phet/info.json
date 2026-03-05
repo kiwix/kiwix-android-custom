@@ -1,6 +1,7 @@
 {
   "app_name": "PhET",
-  "zim_url": "https://mirror.download.kiwix.org/zim/phet/phet_mul_all_2025-03.zim",
+  "zim_recipe": "https://farm.openzim.org/recipes/phet_mul_all",
+  "zim_url": "https://mirror.download.kiwix.org/zim/phet/phet_mul_all_2026-02.zim",
   "enforced_lang": "en",
   "disable_sidebar": true,
   "disable_tabs": true,
