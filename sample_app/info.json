@@ -5,7 +5,7 @@
   "embed_zim": false,
   "ic_launcher": "icon.png",
   "enforced_lang": "en",
-  "support_url": "https://www.kiwix.org/support",
+  "support_url": "https://donate.kiwix.org",
   "upload_bundle": true,
   "kiwix-android_revision": "latest"
 }

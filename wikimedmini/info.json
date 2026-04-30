@@ -3,7 +3,7 @@
   "recipe_url": "https://farm.openzim.org/recipes/mdwiki_app",
   "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/mdwiki_en_all-app_mini_2025-11.zim",
   "enforced_lang": "en",
-  "support_url": "https://www.kiwix.org/support",
+  "support_url": "https://donate.kiwix.org",
   "upload_bundle": true,
   "kiwix-android_revision": "latest"
 }
