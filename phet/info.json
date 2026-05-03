@@ -6,7 +6,7 @@
   "disable_sidebar": true,
   "disable_tabs": true,
   "disable_read_aloud": true,
-  "support_url": "https://www.kiwix.org/support",
+  "support_url": "https://donate.kiwix.org",
   "upload_bundle": true,
   "kiwix-android_revision": "latest"
 }
